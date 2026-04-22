@@ -489,9 +489,6 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-  .login{
-    display: none;
-  }
 
   .navend{
     width: 103px;
@@ -499,7 +496,6 @@ h1 {
 
   .logo2 img{
     width: 98px;
-    margin-left: -2px;
   }
 
   .secound button{
