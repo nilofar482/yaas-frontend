@@ -4,143 +4,135 @@ import axios from 'axios';
 function KanduraSlider() {
   const [slides, setSlides] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-  const [kandura,aboutkandura]=useState([])
+  const [kandura, aboutkandura] = useState([]);
+
   useEffect(() => {
     axios.get("https://api.yaasgents.com/api/aboutkandura/")
       .then((res) => aboutkandura(res.data))
       .catch((err) => console.log(err));
-  }, []); 
+  }, []);
+
   const BASE_URL = "https://api.yaasgents.com";
 
   useEffect(() => {
     axios.get(`${BASE_URL}/api/kanduraslider/`)
-      .then(res => {
-        setSlides(res.data);
-      })
-      .catch(err => {
-        console.error("Slider data fetch error:", err);
-      });
+      .then(res => setSlides(res.data))
+      .catch(err => console.error("Slider data fetch error:", err));
   }, []);
 
   const nextSlide = () => {
+    setVideoLoaded(false); // reset when slide changes
     setCurrentIndex((prev) =>
       prev === slides.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevSlide = () => {
+    setVideoLoaded(false);
     setCurrentIndex((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
 
-  // Loading state
   if (slides.length === 0) {
     return <div className="loading-state">Loading Slider...</div>;
   }
 
   const currentProduct = slides[currentIndex];
-  
 
   return (
     <div>
-    <div className="split-wrapper">
+      <div className="split-wrapper">
 
-      {/* LEFT SIDE: VIDEO */}
-      <div className="left-video-side">
-        <video
-          key={currentProduct.bg_video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="main-video"
-        >
-          <source
-            src={`${BASE_URL}${currentProduct.bg_video}`}
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+        {/* LEFT SIDE: VIDEO */}
+        <div className="left-video-side">
 
-      {/* RIGHT SIDE: SLIDER */}
-      <div className="right-slider-side">
+          {/* 🔥 Show loader until video loads */}
+          {!videoLoaded && (
+            <div className="video-loader">Loading video...</div>
+          )}
 
-        {/* NAV BUTTONS */}
-        <button
-          className="nav-arrow prev"
-          onClick={prevSlide}
-          aria-label="Previous"
-        >
-          &#10229;
-        </button>
-
-        <button
-          className="nav-arrow next"
-          onClick={nextSlide}
-          aria-label="Next"
-        >
-          &#10230;
-        </button>
-
-        <div className="slider-content">
-
-          {/* IMAGE */}
-          <div className="product-display">
-            <img
-              src={`${BASE_URL}${currentProduct.product_image}`}
-              alt={currentProduct.title}
-              className="slide-image-fade"
-              key={currentIndex}
+          <video
+            key={currentProduct.bg_video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"   // ✅ FIXED
+            className="main-video"
+            onLoadedData={() => setVideoLoaded(true)}
+            style={{ display: videoLoaded ? "block" : "none" }}
+          >
+            <source
+              src={`${BASE_URL}${currentProduct.bg_video}`}
+              type="video/mp4"
             />
-          </div>
+          </video>
+        </div>
 
-          {/* TEXT OVERLAY */}
-          <div className="text-overlay">
-            <h2 className="p-title">{currentProduct.title}</h2>
+        {/* RIGHT SIDE */}
+        <div className="right-slider-side">
 
-            {/* COLORS */}
-            <div className="color-row">
-              {currentProduct.colors &&
-                currentProduct.colors.split(',').map((color, i) => {
-                  const cleanColor = color.trim();
+          <button className="nav-arrow prev" onClick={prevSlide}>
+            &#10229;
+          </button>
 
-                  // Skip invalid colors
-                  if (!cleanColor.startsWith('#')) return null;
+          <button className="nav-arrow next" onClick={nextSlide}>
+            &#10230;
+          </button>
 
-                  return (
-                    <span
-                      key={i}
-                      className="color-dot"
-                      style={{ backgroundColor: cleanColor }}
-                      title={cleanColor}
-                    ></span>
-                  );
-                })}
+          <div className="slider-content">
+
+            <div className="product-display">
+              <img
+                src={`${BASE_URL}${currentProduct.product_image}`}
+                alt={currentProduct.title}
+                className="slide-image-fade"
+                key={currentIndex}
+              />
+            </div>
+
+            <div className="text-overlay">
+              <h2 className="p-title">{currentProduct.title}</h2>
+
+              <div className="color-row">
+                {currentProduct.colors &&
+                  currentProduct.colors.split(',').map((color, i) => {
+                    const cleanColor = color.trim();
+                    if (!cleanColor.startsWith('#')) return null;
+
+                    return (
+                      <span
+                        key={i}
+                        className="color-dot"
+                        style={{ backgroundColor: cleanColor }}
+                      ></span>
+                    );
+                  })}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* INDICATORS */}
-        <div className="indicator-container">
-          {slides.map((_, i) => (
-            <div
-              key={i}
-              className={`indicator-line ${
-                currentIndex === i ? 'active' : ''
-              }`}
-              onClick={() => setCurrentIndex(i)}
-            ></div>
-          ))}
-        </div>
+          <div className="indicator-container">
+            {slides.map((_, i) => (
+              <div
+                key={i}
+                className={`indicator-line ${currentIndex === i ? 'active' : ''}`}
+                onClick={() => {
+                  setVideoLoaded(false);
+                  setCurrentIndex(i);
+                }}
+              ></div>
+            ))}
+          </div>
 
+        </div>
       </div>
-    </div>
-    <div>
-      {kandura.map((s, index) => (
+
+      <div>
+        {kandura.map((s, index) => (
           <div className="story" key={index}>
             <p className="story-sub">{s.first_heading}</p>
             <h3 className="story-title">{s.main_heading}</h3>

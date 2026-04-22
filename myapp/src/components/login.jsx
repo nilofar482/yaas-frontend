@@ -18,17 +18,14 @@ function Login() {
     setLoading(true);
 
     try {
-      // Call Django backend login
       const res = await axios.post("https://api.yaasgents.com/api/login_user/", {
         username: email,
         password: password,
       });
 
-      // ✅ Save tokens
       localStorage.setItem("access_token", res.data.access);
       localStorage.setItem("refresh_token", res.data.refresh);
 
-      // ✅ Save user (fallback if API fails later)
       localStorage.setItem(
         "user",
         JSON.stringify({
@@ -37,7 +34,6 @@ function Login() {
         })
       );
 
-      // ✅ Redirect
       navigate("/home");
 
     } catch (err) {
@@ -84,8 +80,13 @@ function Login() {
                 autoComplete="current-password"
               />
 
+              {/* ✅ IMPROVED BUTTON */}
               <button type="submit" disabled={loading}>
-                {loading ? "Logging in..." : "Login"}
+                {loading ? (
+                  <span className="loader"></span>
+                ) : (
+                  "Login"
+                )}
               </button>
 
               <p>
