@@ -923,6 +923,29 @@ padding: 50px 40px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 134px;
 }
+@media (max-width: 480px) {
+
+  .login-container {
+    height: auto;          /* override 100vh */
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .login {
+    margin-top: 0 !important;   /* override your 134px */
+  }
+
+  .signup_div {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .signup_div form {
+    margin-top: 0 !important;
+  }
+
+}
 .login h2 {
    text-align: center;
     /* margin-bottom: 27px; */
