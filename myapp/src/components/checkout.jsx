@@ -85,6 +85,7 @@ function Checkout() {
 
         try {
 
+            // 🔥 FIXED PART ONLY (SAFE DATA SAVE)
             localStorage.setItem("orderData", JSON.stringify({
                 user: {
                     name: form.name,
@@ -102,10 +103,16 @@ function Checkout() {
                     image: isPerfume ? null : selectedColorObj?.image1
                 },
                 total_amount: total,
-                country: form.country
+                country: form.country,
+
+                // ✅ FIX ADDED (ONLY CHANGE)
+                area: form.area || "",
+                building: form.building || "",
+                flat: form.flat || "",
+                landmark: form.landmark || "",
+                pincode: form.pincode || ""
             }));
 
-            // ✅ UPDATED API CALL (ONLY CHANGE)
             const res = await axios.post(
                 "https://api.yaasgents.com/api/create-checkout-session/",
                 {
@@ -113,7 +120,6 @@ function Checkout() {
                     price: total,
                     quantity: qty,
 
-                    // ✅ NEW FIELDS ADDED
                     area: form.area,
                     building: form.building,
                     flat: form.flat,
@@ -206,7 +212,7 @@ function Checkout() {
                 <div className="check_right">
                     <h2>Delivery Details</h2>
 
-                    <p style={{ color: "red", marginBottom: "10px", display: "flex", gap: "11px" }}>
+                    <p style={{ color: "red", marginBottom: "10px" }}>
                         Delivery available only within UAE
                     </p>
 

@@ -6,34 +6,37 @@ function OrderSuccess() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const saveOrder = async () => {
-      try {
-        const storedData = localStorage.getItem("orderData");
+useEffect(() => {
+  const saveOrder = async () => {
+    try {
+      const storedData = localStorage.getItem("orderData");
 
-        if (!storedData) return;
-
-        const orderdata = JSON.parse(storedData);
-
-        await axios.post(
-          "https://api.yaasgents.com/api/create_order/",
-          {
-            ...orderdata,
-            payment_status: "paid",
-          }
-        );
-
-        localStorage.removeItem("orderData");
-
-      } catch (error) {
-        console.log("Order save error:", error);
+      if (!storedData) {
+        console.log("NO ORDER DATA FOUND");
+        return;
       }
-    };
 
-    if (!state) {
-      saveOrder();
+      const orderdata = JSON.parse(storedData);
+
+      console.log("SENDING ORDER DATA:", orderdata);
+
+      await axios.post(
+        "https://api.yaasgents.com/api/create_order/",
+        {
+          ...orderdata,
+          payment_status: "paid",
+        }
+      );
+
+      localStorage.removeItem("orderData");
+
+    } catch (error) {
+      console.log("Order save error:", error);
     }
-  }, [state]);
+  };
+
+  saveOrder();   // ❌ remove state condition
+}, []);
 
   return (
     <div className="success_container">
