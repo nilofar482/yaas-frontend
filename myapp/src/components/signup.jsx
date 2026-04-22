@@ -68,11 +68,9 @@ function Signup({ onSignupSuccess }) {
           onChange={handleChange}
           required
         />
-
         <button type="submit">Signup</button>
+        <p>{message}</p>
       </form>
-
-      <p>{message}</p>
     </div>
   );
 }

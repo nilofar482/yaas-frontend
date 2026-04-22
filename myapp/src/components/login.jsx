@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [showSignup, setShowSignup] = useState(false);
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");   // ✅ FIXED
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ function Login() {
 
     try {
       const res = await axios.post("https://api.yaasgents.com/api/login_user/", {
-        username: email,
+        username: username,
         password: password,
       });
 
@@ -37,14 +37,11 @@ function Login() {
       navigate("/home");
 
     } catch (err) {
-      console.error(err);
-
       if (err.response?.status === 401) {
         setError("Invalid username or password");
       } else {
         setError("Something went wrong. Please try again.");
       }
-
     } finally {
       setLoading(false);
     }
@@ -62,11 +59,12 @@ function Login() {
 
               {error && <p className="error-msg">{error}</p>}
 
+              {/* ✅ FIXED INPUT */}
               <input
                 type="text"
                 placeholder="Username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
                 autoComplete="username"
               />
@@ -80,13 +78,8 @@ function Login() {
                 autoComplete="current-password"
               />
 
-              {/* ✅ IMPROVED BUTTON */}
               <button type="submit" disabled={loading}>
-                {loading ? (
-                  <span className="loader"></span>
-                ) : (
-                  "Login"
-                )}
+                {loading ? <span className="loader"></span> : "Login"}
               </button>
 
               <p>
