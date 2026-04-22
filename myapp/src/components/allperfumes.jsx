@@ -5,7 +5,7 @@ import PopupCart from "./popupcart";
 function Allperfume(){
   const [product, setproduct] = useState([]);
   const [minPrice] = useState(0); // ✅ FIXED (removed setMinPrice)
-  const [maxPrice, setMaxPrice] = useState(2500);
+  const [maxPrice, setMaxPrice] = useState(500);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
 
@@ -61,20 +61,20 @@ function Allperfume(){
       </div>
 
       <div className="filter">
-        <div className="filter_main">
+        {/* <div className="filter_main">
 
           <h3>Price</h3>
 
           <div className="slider_container">
             <div className="price_labels">
-              <span>₹ {minPrice}</span>
-              <span>₹ {maxPrice}</span>
+              <span>AED {minPrice}</span>
+              <span>AED {maxPrice}</span>
             </div>
 
             <input
               type="range"
               min="0"
-              max="2500"
+              max="500"
               value={maxPrice}
               onChange={(e) => {
                 const value = Number(e.target.value);
@@ -84,7 +84,7 @@ function Allperfume(){
             />
           </div>
 
-        </div>
+        </div> */}
 
         <div className="product_list2">
           {product.map((s) => {

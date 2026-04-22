@@ -10,8 +10,8 @@ function Allsandle() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
 
-  const [minPrice] = useState(0); // ✅ FIXED (removed setMinPrice)
-  const [maxPrice, setMaxPrice] = useState(2500);
+  const [minPrice] = useState(0); 
+  const [maxPrice, setMaxPrice] = useState(500);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
 
@@ -97,11 +97,11 @@ function Allsandle() {
           <h3>Price</h3>
           <div className="slider_container">
             <div className="price_labels">
-              <span>₹ {minPrice}</span>
-              <span>₹ {maxPrice}</span>
+              <span>AED {minPrice}</span>
+              <span>AED {maxPrice}</span>
             </div>
 
-            <input type="range" min="0" max="2500" value={maxPrice}
+            <input type="range" min="0" max="500" value={maxPrice}
               onChange={(e) => {
                 const value = Number(e.target.value);
                 if (value > minPrice) setMaxPrice(value);
