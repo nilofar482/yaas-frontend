@@ -69,60 +69,72 @@ function Checkout() {
         setForm({ ...form, [name]: value });
     };
 
-   const handlePayment = async () => {
+    const handlePayment = async () => {
 
-    if (!form.name) return setErrorMessage("Name is required");
-    if (!form.email) return setErrorMessage("Email is required");
-    if (!form.area) return setErrorMessage("Area is required");
-    if (!form.building) return setErrorMessage("Building is required");
-    if (!form.flat) return setErrorMessage("Flat / Villa No is required");
+        if (!form.name) return setErrorMessage("Name is required");
+        if (!form.email) return setErrorMessage("Email is required");
+        if (!form.area) return setErrorMessage("Area is required");
+        if (!form.building) return setErrorMessage("Building is required");
+        if (!form.flat) return setErrorMessage("Flat / Villa No is required");
 
-    if (form.country !== "UAE") {
-        return setErrorMessage("Delivery available only in UAE");
-    }
+        if (form.country !== "UAE") {
+            return setErrorMessage("Delivery available only in UAE");
+        }
 
-    setloading(true);
+        setloading(true);
 
-    try {
+        try {
 
-        localStorage.setItem("orderData", JSON.stringify({
-            user: {
-                name: form.name,
-                email: form.email,
-                phone: form.phone
-            },
-            product: {
-                id: product?.id,
-                name: product?.name,
-                price: product?.price,
-                quantity: qty,
-                size: isPerfume ? null : selectedSize?.size,
-                size_id: isPerfume ? null : selectedSize?.id,
-                color: isPerfume ? null : selectedColor?.color_name,
-                image: isPerfume ? null : selectedColorObj?.image1
-            },
-            total_amount: total,
-            country: form.country
-        }));
+            localStorage.setItem("orderData", JSON.stringify({
+                user: {
+                    name: form.name,
+                    email: form.email,
+                    phone: form.phone
+                },
+                product: {
+                    id: product?.id,
+                    name: product?.name,
+                    price: product?.price,
+                    quantity: qty,
+                    size: isPerfume ? null : selectedSize?.size,
+                    size_id: isPerfume ? null : selectedSize?.id,
+                    color: isPerfume ? null : selectedColor?.color_name,
+                    image: isPerfume ? null : selectedColorObj?.image1
+                },
+                total_amount: total,
+                country: form.country
+            }));
 
-        const res = await axios.post(
-            "https://api.yaasgents.com/api/create-checkout-session/",
-            {
-                name: product?.name,
-                price: total,
-                quantity: qty,
-            }
-        );
+            // ✅ UPDATED API CALL (ONLY CHANGE)
+            const res = await axios.post(
+                "https://api.yaasgents.com/api/create-checkout-session/",
+                {
+                    name: product?.name,
+                    price: total,
+                    quantity: qty,
 
-        window.location.href = res.data.url;
+                    // ✅ NEW FIELDS ADDED
+                    area: form.area,
+                    building: form.building,
+                    flat: form.flat,
+                    landmark: form.landmark,
+                    pincode: form.pincode,
+                    country: form.country,
 
-    } catch (error) {
-        console.log(error);
-        alert("Payment error");
-    }
+                    phone: form.phone,
+                    email: form.email
+                }
+            );
 
-    setloading(false);
-};
+            window.location.href = res.data.url;
+
+        } catch (error) {
+            console.log(error);
+            alert("Payment error");
+        }
+
+        setloading(false);
+    };
 
     return (
         <div>
