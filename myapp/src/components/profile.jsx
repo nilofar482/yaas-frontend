@@ -188,7 +188,7 @@ function Profile() {
           orders.map((order) => {
 
             const imageUrl = order.image
-              ? `http://127.0.0.1:8000${order.image}`
+              ? `https://api.yaasgents.com${order.image}`
               : "";
 
             return (

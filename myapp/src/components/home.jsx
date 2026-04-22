@@ -16,7 +16,7 @@ function Home() {
 
   // 🔥 FETCH MEDIA
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/homemedia/")
+    axios.get("https://api.yaasgents.com/api/homemedia/")
       .then((res) => setMedia(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -40,7 +40,7 @@ function Home() {
 
   // 🔥 FETCH STORY
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/story_data/")
+    axios.get("https://api.yaasgents.com/api/story_data/")
       .then((res) => setstory(res.data))
       .catch((err) => console.log(err));
   }, []); 
@@ -71,7 +71,7 @@ function Home() {
           >
             {item.type === "video" ? (
               <video
-                src={`http://127.0.0.1:8000${item.file}`}
+                src={`https://api.yaasgents.com${item.file}`}
                 autoPlay
                 muted
                 loop
@@ -83,7 +83,7 @@ function Home() {
               />
             ) : (
               <img
-                src={`http://127.0.0.1:8000${item.file}`}
+                src={`https://api.yaasgents.com${item.file}`}
                 alt=""
                 style={{
                   width: "100%",

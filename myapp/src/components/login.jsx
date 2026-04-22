@@ -19,7 +19,7 @@ function Login() {
 
     try {
       // Call Django backend login
-      const res = await axios.post("http://127.0.0.1:8000/api/login_user/", {
+      const res = await axios.post("https://api.yaasgents.com/api/login_user/", {
         username: email,
         password: password,
       });

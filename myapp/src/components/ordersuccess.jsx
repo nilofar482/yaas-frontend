@@ -16,7 +16,7 @@ function OrderSuccess() {
         const orderdata = JSON.parse(storedData);
 
         await axios.post(
-          "http://127.0.0.1:8000/api/create_order/",
+          "https://api.yaasgents.com/api/create_order/",
           {
             ...orderdata,
             payment_status: "paid",

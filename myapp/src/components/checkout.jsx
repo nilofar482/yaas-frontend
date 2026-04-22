@@ -16,8 +16,8 @@ function Checkout() {
         product?.category_name?.toLowerCase() === "perfume";
 
     const imageUrl = image
-        ? `http://127.0.0.1:8000${image}`
-        : `http://127.0.0.1:8000${product?.colors?.[0]?.image1}`;
+        ? `https://api.yaasgents.com${image}`
+        : `https://api.yaasgents.com${product?.colors?.[0]?.image1}`;
 
     const qty = checkoutData?.quantity || 1;
     const total = product?.price * qty;
@@ -106,7 +106,7 @@ function Checkout() {
         }));
 
         const res = await axios.post(
-            "http://127.0.0.1:8000/api/create-checkout-session/",
+            "https://api.yaasgents.com/api/create-checkout-session/",
             {
                 name: product?.name,
                 price: total,

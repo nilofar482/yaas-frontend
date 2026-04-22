@@ -6,7 +6,7 @@ function Footer(){
   const [siteData, setSiteData] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/siteinfo/")
+    fetch("https://api.yaasgents.com/api/siteinfo/")
       .then(res => res.json())
       .then(data => setSiteData(data))
       .catch(err => console.error(err));

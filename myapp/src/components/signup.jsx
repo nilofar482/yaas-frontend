@@ -17,7 +17,7 @@ function Signup({ onSignupSuccess }) {
     e.preventDefault();
 
     axios
-      .post("http://127.0.0.1:8000/api/signup_user/", signupData)
+      .post("https://api.yaasgents.com/api/signup_user/", signupData)
       .then((res) => {
         setMessage(res.data.message);
 

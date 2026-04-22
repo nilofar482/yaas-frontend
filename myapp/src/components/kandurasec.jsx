@@ -7,11 +7,11 @@ function KanduraSlider() {
 
   const [kandura,aboutkandura]=useState([])
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/aboutkandura/")
+    axios.get("https://api.yaasgents.com/api/aboutkandura/")
       .then((res) => aboutkandura(res.data))
       .catch((err) => console.log(err));
   }, []); 
-  const BASE_URL = "http://127.0.0.1:8000";
+  const BASE_URL = "https://api.yaasgents.com";
 
   useEffect(() => {
     axios.get(`${BASE_URL}/api/kanduraslider/`)

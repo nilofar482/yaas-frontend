@@ -43,7 +43,7 @@ function PopupCart({ close, product }) {
 
     try {
       await axios.post(
-        "http://127.0.0.1:8000/api/checkout/init/",
+        "https://api.yaasgents.com/api/checkout/init/",
         checkoutData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -70,7 +70,7 @@ function PopupCart({ close, product }) {
         <div className="popmain">
           <div className="popimage">
             {images.length > 0 ? (
-              <img src={`http://127.0.0.1:8000${images[index]}`} alt={product.name} />
+              <img src={`https://api.yaasgents.com${images[index]}`} alt={product.name} />
             ) : (
               <p>No Image</p>
             )}

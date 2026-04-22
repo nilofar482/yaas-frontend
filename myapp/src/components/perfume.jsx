@@ -8,7 +8,7 @@ function Perfumes() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/product_data/?category=perfumes")
+    axios.get("https://api.yaasgents.com/api/product_data/?category=perfumes")
       .then((res) => setproduct(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -29,9 +29,9 @@ function Perfumes() {
               <div className="img-box">
                 {s.colors && s.colors.length > 0 ? (
                   <>
-                    <img src={`http://127.0.0.1:8000${s.colors[0].image1}`} alt={s.name}/>
+                    <img src={`https://api.yaasgents.com${s.colors[0].image1}`} alt={s.name}/>
                     {s.colors[0].image2 && (
-                      <img src={`http://127.0.0.1:8000${s.colors[0].image2}`} alt={s.name} className="hover-img"/>
+                      <img src={`https://api.yaasgents.com${s.colors[0].image2}`} alt={s.name} className="hover-img"/>
                     )}
                   </>
                 ) : (

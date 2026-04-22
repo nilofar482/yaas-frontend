@@ -5,7 +5,7 @@ function PolicyPage() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/terms/")
+    axios.get("https://api.yaasgents.com/api/terms/")
       .then(res => setData(res.data));
   }, []);
 

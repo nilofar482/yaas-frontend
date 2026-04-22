@@ -51,7 +51,7 @@ function Layout() {
   const handleSearch = async () => {
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/search_product/?q=${encodeURIComponent(searchQuery)}`
+        `https://api.yaasgents.com/api/search_product/?q=${encodeURIComponent(searchQuery)}`
       );
       const data = await res.json();
       setFilteredResults(data);
@@ -197,7 +197,7 @@ function Layout() {
                   <img
                     src={
                       item.colors?.length > 0
-                        ? `http://127.0.0.1:8000${item.colors[0].image1}`
+                        ? `https://api.yaasgents.com${item.colors[0].image1}`
                         : "/no-image.png"   // 👉 fallback image
                     }
                     alt={item.name}
@@ -212,7 +212,7 @@ function Layout() {
                     <div key={color.id} className="search-result-color">
 
                       <img
-                        src={`http://127.0.0.1:8000${color.image1}`}
+                        src={`https://api.yaasgents.com${color.image1}`}
                         alt={item.name}
                       />
 

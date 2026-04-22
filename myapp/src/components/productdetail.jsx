@@ -16,7 +16,7 @@ function ProductDetail() {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/product/${id}/`)
+    axios.get(`https://api.yaasgents.com/api/product/${id}/`)
       .then((res) => {
         setProduct(res.data);
 
@@ -45,7 +45,7 @@ function ProductDetail() {
           {images.map((img, i) => (
             <img
               key={i}
-              src={`http://127.0.0.1:8000${img}`}
+              src={`https://api.yaasgents.com${img}`}
               alt={`${product.name} ${i}`}
               onClick={() => setActiveImage(img)}
             />
@@ -54,7 +54,7 @@ function ProductDetail() {
 
         <div className="main-img">
           <img
-            src={`http://127.0.0.1:8000${activeImage}`}
+            src={`https://api.yaasgents.com${activeImage}`}
             alt={product.name}
           />
         </div>
@@ -83,7 +83,7 @@ function ProductDetail() {
                   }}
                 >
                   <img
-                    src={`http://127.0.0.1:8000${c.image1}`}
+                    src={`https://api.yaasgents.com${c.image1}`}
                     alt={c.color_name}
                   />
                 </div>

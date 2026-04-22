@@ -10,7 +10,7 @@ function Allperfume(){
   const [showSort, setShowSort] = useState(false);
 
   useEffect(() => {
-    let url = `http://127.0.0.1:8000/api/product_list/?category=perfumes`;
+    let url = `https://api.yaasgents.com/api/product_list/?category=perfumes`;
 
     if (minPrice) url += `&min_price=${minPrice}`;
     if (maxPrice) url += `&max_price=${maxPrice}`;
@@ -21,7 +21,7 @@ function Allperfume(){
   }, [minPrice, maxPrice]);
 
   const handleSort = (type) => {
-    let url = `http://127.0.0.1:8000/api/product_list/?category=perfumes&sort=${type}`;
+    let url = `https://api.yaasgents.com/api/product_list/?category=perfumes&sort=${type}`;
     if (minPrice) url += `&min_price=${minPrice}`;
     if (maxPrice) url += `&max_price=${maxPrice}`;
 
@@ -100,12 +100,12 @@ function Allperfume(){
                   {s.colors && s.colors.length > 0 ? (
                     <>
                       <img
-                        src={`http://127.0.0.1:8000${s.colors[0].image1}`}
+                        src={`https://api.yaasgents.com${s.colors[0].image1}`}
                         alt={s.name}
                       />
                       {s.colors[0].image2 && (
                         <img
-                          src={`http://127.0.0.1:8000${s.colors[0].image2}`}
+                          src={`https://api.yaasgents.com${s.colors[0].image2}`}
                           alt={s.name}
                           className="hover-img"
                         />

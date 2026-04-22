@@ -16,7 +16,7 @@ function Allsandle() {
   const [selectedSize, setSelectedSize] = useState("");
 
   useEffect(() => {
-    let url = `http://127.0.0.1:8000/api/product_list/?category=sandles`;
+    let url = `https://api.yaasgents.com/api/product_list/?category=sandles`;
 
     if (minPrice) url += `&min_price=${minPrice}`;
     if (maxPrice) url += `&max_price=${maxPrice}`;
@@ -29,7 +29,7 @@ function Allsandle() {
   }, [minPrice, maxPrice, selectedColor, selectedSize]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/product_list/?category=sandles")
+    axios.get("https://api.yaasgents.com/api/product_list/?category=sandles")
       .then((res) => {
         const allColors = res.data.flatMap(p =>
           p.colors ? p.colors.map(c => c.color_name) : []
@@ -50,7 +50,7 @@ function Allsandle() {
   }, []);
 
   const handleSort = (type) => {
-    let url = `http://127.0.0.1:8000/api/product_list/?category=sandles&sort=${type}`;
+    let url = `https://api.yaasgents.com/api/product_list/?category=sandles&sort=${type}`;
 
     if (minPrice) url += `&min_price=${minPrice}`;
     if (maxPrice) url += `&max_price=${maxPrice}`;
@@ -154,12 +154,12 @@ function Allsandle() {
                   {s.colors && s.colors.length > 0 ? (
                     <>
                       <img
-                        src={`http://127.0.0.1:8000${s.colors[0].image1}`}
+                        src={`https://api.yaasgents.com${s.colors[0].image1}`}
                         alt={s.name}
                       />
                       {s.colors[0].image2 && (
                         <img
-                          src={`http://127.0.0.1:8000${s.colors[0].image2}`}
+                          src={`https://api.yaasgents.com${s.colors[0].image2}`}
                           alt={s.name}
                           className="hover-img"
                         />
