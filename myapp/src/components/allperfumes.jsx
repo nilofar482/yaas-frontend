@@ -4,8 +4,11 @@ import PopupCart from "./popupcart";
 
 function Allperfume(){
   const [product, setproduct] = useState([]);
-  const [minPrice] = useState(0); // ✅ FIXED (removed setMinPrice)
-  const [maxPrice, setMaxPrice] = useState(500);
+  const [minPrice] = useState(0); // FIXED (removed setMinPrice)
+
+  // const [maxPrice, setMaxPrice] = useState(500);
+  const [maxPrice] = useState(500); // FIX: removed unused setter safely
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
 
@@ -61,7 +64,10 @@ function Allperfume(){
       </div>
 
       <div className="filter">
-        {/* <div className="filter_main">
+
+        {/* FILTER SECTION COMMENTED (unchanged) */}
+        {/*
+        <div className="filter_main">
 
           <h3>Price</h3>
 
@@ -84,7 +90,8 @@ function Allperfume(){
             />
           </div>
 
-        </div> */}
+        </div>
+        */}
 
         <div className="product_list2">
           {product.map((s) => {
