@@ -10,7 +10,7 @@ function Allsandle() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
 
-  const [minPrice, setMinPrice] = useState(0);
+  const [minPrice] = useState(0); // ✅ FIXED (removed setMinPrice)
   const [maxPrice, setMaxPrice] = useState(2500);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -77,8 +77,8 @@ function Allsandle() {
         <div className="sort_main" onClick={() => setShowSort(!showSort)}>
           <p>Sort by</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-</svg>
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+          </svg>
         </div>
 
         {showSort && (
@@ -143,7 +143,6 @@ function Allsandle() {
         <div className="product_list2">
           {product.map((s) => {
 
-            // 🔥 STOCK CALCULATION (NO CHANGE)
             const totalStock = s.colors?.reduce((total, color) => {
               return total + (color.sizes?.reduce((sum, size) => sum + (size.stock || 0), 0) || 0);
             }, 0);
@@ -213,22 +212,23 @@ function Allsandle() {
           product={selectedProduct}
         />
       )}
+
       <div className="whatsapp">
         <button className="whatsapp_btn"
-        onClick={() => {
-        const message = encodeURIComponent(
-        "Hi, I am interested in your product"
-      );
+          onClick={() => {
+            const message = encodeURIComponent(
+              "Hi, I am interested in your product"
+            );
 
-      window.open(
-        `https://wa.me/971568160153?text=${message}`,
-        "_blank"
-      );
-    }}
-    >
-    <img src="/whatsapp.png" alt="" />
-    </button>
-    </div>
+            window.open(
+              `https://wa.me/971568160153?text=${message}`,
+              "_blank"
+            );
+          }}
+        >
+          <img src="/whatsapp.png" alt="" />
+        </button>
+      </div>
     </div>
   );
 }

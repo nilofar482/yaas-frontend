@@ -4,7 +4,7 @@ import PopupCart from "./popupcart";
 
 function Allperfume(){
   const [product, setproduct] = useState([]);
-  const [minPrice, setMinPrice] = useState(0);
+  const [minPrice] = useState(0); // ✅ FIXED (removed setMinPrice)
   const [maxPrice, setMaxPrice] = useState(2500);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
@@ -45,8 +45,8 @@ function Allperfume(){
         <div className="sort_main" onClick={() => setShowSort(!showSort)}>
           <p>Sort by</p>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-</svg>
+            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+          </svg>
         </div>
 
         {showSort && (
@@ -71,7 +71,11 @@ function Allperfume(){
               <span>₹ {maxPrice}</span>
             </div>
 
-            <input type="range" min="0" max="2500" value={maxPrice}
+            <input
+              type="range"
+              min="0"
+              max="2500"
+              value={maxPrice}
               onChange={(e) => {
                 const value = Number(e.target.value);
                 if (value > minPrice) setMaxPrice(value);
@@ -112,7 +116,6 @@ function Allperfume(){
                   )}
                 </div>
 
-                {/* 🔥 ONLY SOLD OUT ADDED */}
                 {totalStock === 0 && (
                   <div className="sold_out">
                     Out of Stock
@@ -155,22 +158,24 @@ function Allperfume(){
           product={{ ...selectedProduct, category: "perfumes" }}
         />
       )}
-      <div className="whatsapp">
-        <button className="whatsapp_btn"
-        onClick={() => {
-        const message = encodeURIComponent(
-        "Hi, I am interested in your product"
-      );
 
-      window.open(
-        `https://wa.me/971568160153?text=${message}`,
-        "_blank"
-      );
-    }}
-    >
-    <img src="/whatsapp.png" alt="" />
-    </button>
-    </div>
+      <div className="whatsapp">
+        <button
+          className="whatsapp_btn"
+          onClick={() => {
+            const message = encodeURIComponent(
+              "Hi, I am interested in your product"
+            );
+
+            window.open(
+              `https://wa.me/971568160153?text=${message}`,
+              "_blank"
+            );
+          }}
+        >
+          <img src="/whatsapp.png" alt="" />
+        </button>
+      </div>
     </div>
   );
 }
