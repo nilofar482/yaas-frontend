@@ -67,7 +67,7 @@ function Footer(){
       <span>© 2019 - Yaas_gents</span>
       <div className="footer-payments">
         <img src="/apple pay.jpg" alt="Apple Pay" />
-        <img src="/mastercard_logo.webp" alt="MasterCard" />
+        <img src="/Mastercard_logo.webp" alt="MasterCard" />
         <img src="/visa.png" alt="Visa" />
       </div>
     </div>
