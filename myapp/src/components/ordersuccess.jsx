@@ -1,9 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 
 function OrderSuccess() {
-  const { state } = useLocation();
+  // const { state } = useLocation();
   const navigate = useNavigate();
 
 useEffect(() => {
@@ -35,7 +35,7 @@ useEffect(() => {
     }
   };
 
-  saveOrder();   // ❌ remove state condition
+  saveOrder(); 
 }, []);
 
   return (

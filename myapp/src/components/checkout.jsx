@@ -85,7 +85,6 @@ function Checkout() {
 
         try {
 
-            // 🔥 FIXED PART ONLY (SAFE DATA SAVE)
             localStorage.setItem("orderData", JSON.stringify({
                 user: {
                     name: form.name,
@@ -105,7 +104,6 @@ function Checkout() {
                 total_amount: total,
                 country: form.country,
 
-                // ✅ FIX ADDED (ONLY CHANGE)
                 area: form.area || "",
                 building: form.building || "",
                 flat: form.flat || "",
@@ -119,6 +117,10 @@ function Checkout() {
                     name: product?.name,
                     price: total,
                     quantity: qty,
+
+                    // ✅ FIX (ONLY THIS ADDED)
+                    size: isPerfume ? "" : selectedSize?.size || "",
+                    color: isPerfume ? "" : selectedColor?.color_name || "",
 
                     area: form.area,
                     building: form.building,
