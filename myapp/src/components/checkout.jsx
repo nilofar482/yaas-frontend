@@ -112,33 +112,35 @@ function Checkout() {
             }));
 
             const res = await axios.post(
-    "https://api.yaasgents.com/api/create-checkout-session/",
-    {
-        user: {
-            name: form.name,
-            email: form.email,
-            phone: form.phone
-        },
+  "https://api.yaasgents.com/api/create-checkout-session/",
+  {
+    user: {
+      name: form.name,
+      email: form.email,
+      phone: form.phone
+    },
 
-        product: {
-            id: product?.id,
-            name: product?.name,
-            price: product?.price,
-            quantity: qty,
-            size: isPerfume ? null : selectedSize?.size,
-            color: isPerfume ? null : selectedColor?.color_name,
-            image: isPerfume ? null : selectedColorObj?.image1
-        },
+    product: {
+      id: product?.id,
+      name: product?.name,
+      price: product?.price,
+      quantity: qty,
+      size: isPerfume ? "" : selectedSize?.size || "",
+      color: isPerfume ? "" : selectedColor?.color_name || ""
+    },
 
-        total_amount: total,
+    quantity: qty,
+    price: product?.price,   // 🔥 IMPORTANT FIX
 
-        country: form.country,
-        area: form.area,
-        building: form.building,
-        flat: form.flat,
-        landmark: form.landmark,
-        pincode: form.pincode
-    }
+    total_amount: total,
+
+    area: form.area,
+    building: form.building,
+    flat: form.flat,
+    landmark: form.landmark,
+    pincode: form.pincode,
+    country: form.country
+  }
 );
 
             window.location.href = res.data.url;
