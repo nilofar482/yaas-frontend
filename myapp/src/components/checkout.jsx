@@ -126,7 +126,8 @@ function Checkout() {
       price: product?.price,
       quantity: qty,
       size: isPerfume ? "" : selectedSize?.size || "",
-      color: isPerfume ? "" : selectedColor?.color_name || ""
+      color: isPerfume ? "" : selectedColor?.color_name || "",
+      image: product.image 
     },
 
     quantity: qty,
