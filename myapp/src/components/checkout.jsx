@@ -110,29 +110,31 @@ function Checkout() {
                 landmark: form.landmark || "",
                 pincode: form.pincode || ""
             }));
+            const res = await axios.post("https://api.yaasgents.com/api/create-checkout-session/",{
+                user: {
+                    name: form.name,
+                    email: form.email,
+                    phone: form.phone
+                },
 
-            const res = await axios.post(
-                "https://api.yaasgents.com/api/create-checkout-session/",
-                {
+                product: {
+                    id: product?.id,
                     name: product?.name,
-                    price: total,
+                    price: product?.price,
                     quantity: qty,
-
-                    // ✅ FIX (ONLY THIS ADDED)
                     size: isPerfume ? "" : selectedSize?.size || "",
-                    color: isPerfume ? "" : selectedColor?.color_name || "",
+                    color: isPerfume ? "" : selectedColor?.color_name || ""
+                },
+                total_amount: total,
+                country: form.country,
 
-                    area: form.area,
-                    building: form.building,
-                    flat: form.flat,
-                    landmark: form.landmark,
-                    pincode: form.pincode,
-                    country: form.country,
-
-                    phone: form.phone,
-                    email: form.email
-                }
-            );
+                area: form.area,
+                building: form.building,
+                flat: form.flat,
+                landmark: form.landmark,
+                pincode: form.pincode
+            }
+        );
 
             window.location.href = res.data.url;
 
