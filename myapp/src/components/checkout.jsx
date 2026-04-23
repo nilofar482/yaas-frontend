@@ -113,33 +113,30 @@ function Checkout() {
 
             // ✅ FIXED AXIOS SYNTAX ONLY
             const res = await axios.post(
-                "https://api.yaasgents.com/api/create-checkout-session/",
-                {
-                    user: {
-                        name: form.name,
-                        email: form.email,
-                        phone: form.phone
-                    },
+    "https://api.yaasgents.com/api/create-checkout-session/",
+    {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
 
-                    product: {
-                        id: product?.id,
-                        name: product?.name,
-                        price: product?.price,
-                        quantity: qty,
-                        size: isPerfume ? "" : selectedSize?.size || "",
-                        color: isPerfume ? "" : selectedColor?.color_name || ""
-                    },
+        product_id: product?.id,
+        name: product?.name,
+        price: product?.price,
+        quantity: qty,
 
-                    total_amount: total,
-                    country: form.country,
+        size: isPerfume ? "" : selectedSize?.size || "",
+        color: isPerfume ? "" : selectedColor?.color_name || "",
 
-                    area: form.area,
-                    building: form.building,
-                    flat: form.flat,
-                    landmark: form.landmark,
-                    pincode: form.pincode
-                }
-            );
+        total_amount: total,
+
+        country: form.country,
+        area: form.area,
+        building: form.building,
+        flat: form.flat,
+        landmark: form.landmark,
+        pincode: form.pincode
+    }
+);
 
             window.location.href = res.data.url;
 
