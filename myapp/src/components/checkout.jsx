@@ -228,7 +228,7 @@ function Checkout() {
                     <input name="name" value={form.name} onChange={handleChange} />
 
                     {/* ✅ FIXED (no hidden bug) */}
-                    <input type="hidden" name="email" value={form.email} />
+                    <input type="hidden" name="email" value={form.email} hidden/>
 
                     <input name="phone" value={form.phone} onChange={handleChange} />
 
