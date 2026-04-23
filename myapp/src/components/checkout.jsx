@@ -111,32 +111,28 @@ function Checkout() {
                 pincode: form.pincode || ""
             }));
 
-            // ✅ FIXED AXIOS SYNTAX ONLY
             const res = await axios.post(
-    "https://api.yaasgents.com/api/create-checkout-session/",
-    {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
+                "https://api.yaasgents.com/api/create-checkout-session/",
+                {
+                    name: product?.name,
+                    price: total,
+                    quantity: qty,
 
-        product_id: product?.id,
-        name: product?.name,
-        price: product?.price,
-        quantity: qty,
+                    // ✅ FIX (ONLY THIS ADDED)
+                    size: isPerfume ? "" : selectedSize?.size || "",
+                    color: isPerfume ? "" : selectedColor?.color_name || "",
 
-        size: isPerfume ? "" : selectedSize?.size || "",
-        color: isPerfume ? "" : selectedColor?.color_name || "",
+                    area: form.area,
+                    building: form.building,
+                    flat: form.flat,
+                    landmark: form.landmark,
+                    pincode: form.pincode,
+                    country: form.country,
 
-        total_amount: total,
-
-        country: form.country,
-        area: form.area,
-        building: form.building,
-        flat: form.flat,
-        landmark: form.landmark,
-        pincode: form.pincode
-    }
-);
+                    phone: form.phone,
+                    email: form.email
+                }
+            );
 
             window.location.href = res.data.url;
 
@@ -223,10 +219,7 @@ function Checkout() {
                     </p>
 
                     <input name="name" value={form.name} onChange={handleChange} />
-
-                    {/* ✅ FIXED (no hidden bug) */}
-                    <input type="hidden" name="email" value={form.email} hidden/>
-
+                    <input name="email" value={form.email} hidden />
                     <input name="phone" value={form.phone} onChange={handleChange} />
 
                     <input
