@@ -74,7 +74,11 @@ function Footer(){
   </div>
   {/* <div className="line"></div> */}
   <div className="developed">
-    <div className="by"><a href="www.suhadigitech.com">Developed by Suha Digitech</a></div>
+    <div className="by">
+  <a href="https://www.suhadigitech.com" target="_blank" rel="noopener noreferrer">
+    Developed by Suha Digitech
+  </a>
+</div>
   </div>
 </footer>
     )

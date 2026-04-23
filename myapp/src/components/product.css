@@ -2868,16 +2868,19 @@ width: 40px;
 
 
 /* order success page */
+/* order success page */
 .success_container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px; /* ✅ prevents edge touching on mobile */
 }
 
 .success_card {
   background: #fff;
-  width: 420px;
+  width: 100%;
+  max-width: 420px; /* ✅ responsive instead of fixed */
   padding: 30px 20px;
   border-radius: 12px;
   text-align: center;
@@ -2896,11 +2899,11 @@ width: 40px;
 }
 
 .icon_circle {
-  width: 79px;
-  height: 77px;
+  width: 70px;
+  height: 70px;
   background: #2e7d32;
   color: #fff;
-  font-size: 40px;
+  font-size: 32px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -2909,15 +2912,15 @@ width: 40px;
 }
 
 .success_card h2 {
-    margin: 34px 0;
-    color: #2e7d32;
-    font-size: xxx-large;
+  margin: 25px 0;
+  color: #2e7d32;
+  font-size: 28px; /* ✅ responsive font */
 }
 
 .thank_text {
-    font-weight: 800;
-    margin-bottom: 5px;
-    font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  font-size: 15px;
 }
 
 .sub_text {
@@ -2926,34 +2929,46 @@ width: 40px;
   margin-bottom: 20px;
 }
 
-.order_box {
-  background: #f7f7f7;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: left;
-  font-size: 14px;
-}
-
-.payment_method {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #555;
-}
-
 .home_btn {
-    width: 31%;
-    padding: 10px;
-    border: none;
-    background: #2e7d32;
-    color: #fff;
-    /* font-weight: bold; */
-    border-radius: 6px;
-    cursor: pointer;
+  width: 100%; /* ✅ full width on mobile */
+  max-width: 200px; /* ✅ nice look on desktop */
+  padding: 10px;
+  border: none;
+  background: #2e7d32;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
 .home_btn:hover {
   background: #1e5421;
+}
+
+/* 📱 MOBILE EXTRA */
+@media (max-width: 480px) {
+
+  .success_card {
+    padding: 25px 15px;
+  }
+
+  .success_card h2 {
+    font-size: 22px;
+  }
+
+  .icon_circle {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .thank_text {
+    font-size: 14px;
+  }
+
+  .sub_text {
+    font-size: 12px;
+  }
 }
 
 /* terms */
