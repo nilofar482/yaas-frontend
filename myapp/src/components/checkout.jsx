@@ -110,31 +110,36 @@ function Checkout() {
                 landmark: form.landmark || "",
                 pincode: form.pincode || ""
             }));
-            const res = await axios.post("https://api.yaasgents.com/api/create-checkout-session/",{
-                user: {
-                    name: form.name,
-                    email: form.email,
-                    phone: form.phone
-                },
 
-                product: {
-                    id: product?.id,
-                    name: product?.name,
-                    price: product?.price,
-                    quantity: qty,
-                    size: isPerfume ? "" : selectedSize?.size || "",
-                    color: isPerfume ? "" : selectedColor?.color_name || ""
-                },
-                total_amount: total,
-                country: form.country,
+            // ✅ FIXED AXIOS SYNTAX ONLY
+            const res = await axios.post(
+                "https://api.yaasgents.com/api/create-checkout-session/",
+                {
+                    user: {
+                        name: form.name,
+                        email: form.email,
+                        phone: form.phone
+                    },
 
-                area: form.area,
-                building: form.building,
-                flat: form.flat,
-                landmark: form.landmark,
-                pincode: form.pincode
-            }
-        );
+                    product: {
+                        id: product?.id,
+                        name: product?.name,
+                        price: product?.price,
+                        quantity: qty,
+                        size: isPerfume ? "" : selectedSize?.size || "",
+                        color: isPerfume ? "" : selectedColor?.color_name || ""
+                    },
+
+                    total_amount: total,
+                    country: form.country,
+
+                    area: form.area,
+                    building: form.building,
+                    flat: form.flat,
+                    landmark: form.landmark,
+                    pincode: form.pincode
+                }
+            );
 
             window.location.href = res.data.url;
 
@@ -221,7 +226,10 @@ function Checkout() {
                     </p>
 
                     <input name="name" value={form.name} onChange={handleChange} />
-                    <input name="email" value={form.email} hidden />
+
+                    {/* ✅ FIXED (no hidden bug) */}
+                    <input type="hidden" name="email" value={form.email} />
+
                     <input name="phone" value={form.phone} onChange={handleChange} />
 
                     <input
