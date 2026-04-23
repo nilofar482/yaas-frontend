@@ -111,35 +111,26 @@ function Checkout() {
                 pincode: form.pincode || ""
             }));
 
-            // ✅ FIXED BACKEND STRUCTURE
             const res = await axios.post(
                 "https://api.yaasgents.com/api/create-checkout-session/",
                 {
-                    user: {
-                        name: form.name,
-                        email: form.email,
-                        phone: form.phone
-                    },
+                    name: product?.name,
+                    price: total,
+                    quantity: qty,
 
-                    product: {
-                        id: product?.id,
-                        name: product?.name,
-                        price: product?.price,
-                        quantity: qty,
-                        size: isPerfume ? null : selectedSize?.size,
-                        size_id: isPerfume ? null : selectedSize?.id,
-                        color: isPerfume ? null : selectedColor?.color_name,
-                        image: isPerfume ? null : selectedColorObj?.image1
-                    },
-
-                    total_amount: total,
-                    country: form.country,
+                    // ✅ FIX (ONLY THIS ADDED)
+                    size: isPerfume ? "" : selectedSize?.size || "",
+                    color: isPerfume ? "" : selectedColor?.color_name || "",
 
                     area: form.area,
                     building: form.building,
                     flat: form.flat,
                     landmark: form.landmark,
-                    pincode: form.pincode
+                    pincode: form.pincode,
+                    country: form.country,
+
+                    phone: form.phone,
+                    email: form.email
                 }
             );
 
@@ -155,6 +146,7 @@ function Checkout() {
 
     return (
         <div>
+
             {errorMessage && (
                 <div className="login_popup_overlay" onClick={() => setErrorMessage("")}>
                     <div className="login_popup" onClick={(e) => e.stopPropagation()}>
