@@ -83,7 +83,6 @@ function Profile() {
 
         {!viewMode ? (
           <div>
-
             <div className="profile_form_card">
               <div className="form_group">
                 <label>Name</label>
@@ -157,22 +156,21 @@ function Profile() {
                 Save Details
               </button>
             </div>
-
           </div>
         ) : (
           <div className="profile_card1">
-            <h2 className="profile_title">Personal Info</h2>
+            <h2>Personal Info</h2>
             <p><strong>Name:</strong> {user?.name}</p>
             <p><strong>Email:</strong> {user?.email}</p>
             <p><strong>Phone:</strong> {profile.phone}</p>
 
             <h3>Delivery Address</h3>
-            <p><strong>Address:</strong> {profile.address}</p>
-            <p><strong>City:</strong> {profile.city}</p>
-            <p><strong>Pincode:</strong> {profile.pincode}</p>
-            <p><strong>Country:</strong> {profile.country}</p>
+            <p>{profile.address}</p>
+            <p>{profile.city}</p>
+            <p>{profile.pincode}</p>
+            <p>{profile.country}</p>
 
-            <button onClick={() => setViewMode(false)}>Edit Profile</button>
+            <button onClick={() => setViewMode(false)}>Edit</button>
           </div>
         )}
 
@@ -180,18 +178,19 @@ function Profile() {
 
       {/* RIGHT SIDE */}
       <div className="main_profile">
-        <h2 className="profile_title">My Orders</h2>
+        <h2>My Orders</h2>
 
         {orders.length === 0 ? (
           <p>No orders found</p>
         ) : (
           orders.map((order) => {
 
+            // ✅ FIXED IMAGE HANDLING
             const imageUrl = order.image
-            ? order.image.startsWith("http")
-            ? order.image
-            : `https://api.yaasgents.com${order.image.startsWith("/") ? "" : "/"}${order.image}`
-            : "";
+              ? order.image.startsWith("http")
+                ? order.image
+                : `https://api.yaasgents.com${order.image.startsWith("/") ? "" : "/"}${order.image}`
+              : "";
 
             return (
               <div className="order_card" key={order.id}>
@@ -211,22 +210,20 @@ function Profile() {
           })
         )}
       </div>
-      <div className="whatsapp">
-        <button className="whatsapp_btn"
-        onClick={() => {
-        const message = encodeURIComponent(
-        "Hi, I am interested in your product"
-      );
 
-      window.open(
-        `https://wa.me/971568160153?text=${message}`,
-        "_blank"
-      );
-    }}
-    >
-    <img src="/whatsapp.png" alt="" />
-    </button>
-    </div>
+      {/* WHATSAPP */}
+      <div className="whatsapp">
+        <button
+          className="whatsapp_btn"
+          onClick={() => {
+            const message = encodeURIComponent("Hi, I am interested in your product");
+            window.open(`https://wa.me/971568160153?text=${message}`, "_blank");
+          }}
+        >
+          <img src="/whatsapp.png" alt="" />
+        </button>
+      </div>
+
     </div>
   );
 }
