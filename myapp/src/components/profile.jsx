@@ -188,8 +188,10 @@ function Profile() {
           orders.map((order) => {
 
             const imageUrl = order.image
-              ? `https://api.yaasgents.com${order.image}`
-              : "";
+            ? order.image.startsWith("http")
+            ? order.image
+            : `https://api.yaasgents.com${order.image.startsWith("/") ? "" : "/"}${order.image}`
+            : "";
 
             return (
               <div className="order_card" key={order.id}>
