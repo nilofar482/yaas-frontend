@@ -2004,6 +2004,9 @@ width: 40px;
   .price {
     font-size: 16px;
   }
+  .qty_btn{
+    height: 22px;
+  }
 }
 
 
