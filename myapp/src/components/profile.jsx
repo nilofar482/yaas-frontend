@@ -184,9 +184,9 @@ function Profile() {
           <p>No orders found</p>
         ) : (
           orders.map((order) => {
-            {imageUrl && (
-            <img src={imageUrl} alt={order.product_name} />
-          )}
+
+            // ✅ FIXED IMAGE HANDLING
+            const imageUrl = order.image || "";
 
             return (
               <div className="order_card" key={order.id}>
