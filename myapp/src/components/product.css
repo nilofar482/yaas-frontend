@@ -519,7 +519,7 @@
   }
   .qty-section{
     gap: 7px;
-    margin-bottom: 4px;
+    margin-bottom: 1px;
     width: 42%;
   }
   .popimage img {
@@ -557,12 +557,6 @@
   .size_item {
     padding: 5px 8px;
     font-size: 10px;
-  }
-
-  /* QTY */
-  .qty-section {
-    justify-content: flex-start;
-    gap: 8px;
   }
 
   /* BUTTON */
