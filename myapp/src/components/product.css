@@ -274,7 +274,7 @@
   box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
 }
 /* MOBILE VIEW */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .product_list {
     gap: 20px; /* reduce gap for mobile */
     padding: 0 10px;
