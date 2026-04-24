@@ -2308,15 +2308,15 @@ width: 40px;
 
 /* ORDER CARD */
 .order_card {
+    align-items: flex-start;
     background: #fff;
-    padding: 15px 69px 15px;
-    margin-bottom: 15px;
     border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 18px #0000000d;
     display: flex;
-    gap: 15px;
-    align-items: flex-start; /* 🔥 fixed */
-    transition: 0.3s;
+    gap: 22px;
+    margin-bottom: 15px;
+    padding: 15px 55px;
+    transition: .3s;
     width: 100%;
 }
 
@@ -2326,11 +2326,10 @@ width: 40px;
 
 /* IMAGE */
 .order_card img {
-  width: 90px; /* 🔥 improved */
-  height: 90px;
-  object-fit: cover;
-  border-radius: 10px;
-  flex-shrink: 0;
+   border-radius: 10px;
+    object-fit: cover;
+    width: 93px;
+    margin-top: 23px;
 }
 
 /* TEXT CONTENT */
