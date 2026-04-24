@@ -126,9 +126,9 @@ function PopupCart({ close, product }) {
             )}
 
             <div className="qty-section">
-              <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
+              <button className="qty_bn" onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
               <span>{qty}</span>
-              <button onClick={() => setQty(qty + 1)}>+</button>
+              <button className="qty_bn" onClick={() => setQty(qty + 1)}>+</button>
             </div>
 
             <div className="popup_btns">
