@@ -498,73 +498,77 @@
 @media (max-width: 468px) {
 
   .popupcart {
-    width: 90%;
-    max-width: 90%;
-    height: auto;
-    max-height: 90vh;
-    padding: 15px;
-    border-radius: 10px;
+    width: 95%;
+    max-width: 95%;
+    padding: 10px;
   }
 
   .popmain {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    flex-direction: row; /* 🔥 KEEP ROW */
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  /* IMAGE FULL WIDTH */
+  /* IMAGE SMALL LEFT SIDE */
   .popimage {
-    width: 100%;
-    height: auto;
+    width: 45%;
+    min-width: 120px;
   }
 
   .popimage img {
     width: 100%;
-    height: 250px; /* 🔥 fixed height for neat look */
+    height: 180px; /* 🔥 compact height */
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 5px;
   }
 
-  /* DETAILS FULL WIDTH */
+  /* DETAILS RIGHT SIDE */
   .popdetails {
-    width: 100%;
-    text-align: center;
+    width: 55%;
+    text-align: left;
     margin-top: 0;
   }
 
   .popdetails h2 {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .popdetails p {
-    font-size: 15px;
-  }
-
-  /* CENTER ELEMENTS */
-  .color_box,
-  .size_box,
-  .qty-section {
-    justify-content: center;
-  }
-
-  /* SIZE BUTTON */
-  .size_item {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  /* BUY BUTTON */
-  .buy_now {
-    width: 100%;
     font-size: 14px;
-    padding: 10px;
   }
 
-  /* CLOSE BUTTON FIX */
-  .remove2 {
-    top: 8px;
-    right: 8px;
+  .color_var,
+  .size_var {
+    font-size: 13px;
+  }
+
+  /* SIZE BOX COMPACT */
+  .size_box {
+    gap: 4px;
+  }
+
+  .size_item {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  /* QTY */
+  .qty-section {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  /* BUTTON */
+  .buy_now {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  /* ARROWS SMALL */
+  .prev, .next {
     font-size: 16px;
+    width: 22px;
+    height: 22px;
   }
 }
 
