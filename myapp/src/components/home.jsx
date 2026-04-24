@@ -7,12 +7,9 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const [media, setMedia] = useState([]);
-
   const [index, setIndex] = useState(0);
   const [indexChanging, setIndexChanging] = useState(false);
-
   const [story, setstory] = useState([]);
-
 
   // 🔥 FETCH MEDIA
   useEffect(() => {
@@ -43,7 +40,7 @@ function Home() {
     axios.get("https://api.yaasgents.com/api/story_data/")
       .then((res) => setstory(res.data))
       .catch((err) => console.log(err));
-  }, []); 
+  }, []);
 
   return (
     <>
@@ -51,7 +48,6 @@ function Home() {
       <div
         style={{
           width: "100%",
-          height: "100vh",
           overflow: "hidden",
           position: "relative"
         }}
@@ -60,13 +56,7 @@ function Home() {
           <div
             key={i}
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              opacity: i === index ? 1 : 0,
-              transition: "opacity 1.5s ease-in-out",
+              display: i === index ? "block" : "none"
             }}
           >
             {item.type === "video" ? (
@@ -77,8 +67,8 @@ function Home() {
                 loop
                 style={{
                   width: "100%",
-                  height: "100%",
-                  objectFit: "cover"
+                  height: "auto",
+                  objectFit: "contain"
                 }}
               />
             ) : (
@@ -87,28 +77,31 @@ function Home() {
                 alt=""
                 style={{
                   width: "100%",
-                  height: "100%",
-                  objectFit: "cover"
+                  height: "auto",
+                  objectFit: "contain"
                 }}
               />
             )}
           </div>
         ))}
 
-        {/* 🔥 BLACK FADE */}
+        {/* 🔥 FADE */}
         <div className={`fade-overlay ${indexChanging ? "active" : ""}`}></div>
 
-        {/* 🔥 DYNAMIC TEXT */}
+        {/* 🔥 TEXT */}
         <div className="content">
           {media[index] && (
             <>
               <p className="stylish">{media[index].heading}</p>
-              <Link to={media[index]?.link || "#"} className="homebutton">{media[index]?.button_text}</Link>
+              <Link to={media[index]?.link || "#"} className="homebutton">
+                {media[index]?.button_text}
+              </Link>
             </>
           )}
         </div>
       </div>
 
+      {/* STORY */}
       <div>
         {story.map((s, index) => (
           <div className="story" key={index}>
@@ -118,19 +111,6 @@ function Home() {
           </div>
         ))}
       </div>
-
-
-      {/* <div className="secmain">
-        <div className="secound">
-          <p className="sec-sub">Elegance for the Whole Family</p>
-          <h2 className="sec-title">Ramadan 2026 Collection</h2>
-          <p className="sec-brand">by Prestige</p>
-          <p className="sec-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
-          <button className="sec-btn">Shop Now</button>
-        </div>
-      </div> */}
 
       <div className="line"></div>
 
@@ -142,26 +122,27 @@ function Home() {
 
       <div className="line"></div>
 
-      <KanduraSlider/>
+      <KanduraSlider />
 
+      {/* WHATSAPP */}
       <div className="whatsapp">
-        <button className="whatsapp_btn"
-        onClick={() => {
-        const message = encodeURIComponent(
-        "Hi, I am interested in your product"
-      );
+        <button
+          className="whatsapp_btn"
+          onClick={() => {
+            const message = encodeURIComponent(
+              "Hi, I am interested in your product"
+            );
 
-      window.open(
-        `https://wa.me/971568160153?text=${message}`,
-        "_blank"
-      );
-    }}
-    >
-    <img src="/whatsapp.png" alt="" />
-    </button>
-    </div>
+            window.open(
+              `https://wa.me/971568160153?text=${message}`,
+              "_blank"
+            );
+          }}
+        >
+          <img src="/whatsapp.png" alt="" />
+        </button>
+      </div>
     </>
-    
   );
 }
 
