@@ -184,13 +184,9 @@ function Profile() {
           <p>No orders found</p>
         ) : (
           orders.map((order) => {
-
-            // ✅ FIXED IMAGE HANDLING
-            const imageUrl = order.image
-              ? order.image.startsWith("http")
-                ? order.image
-                : `https://api.yaasgents.com${order.image.startsWith("/") ? "" : "/"}${order.image}`
-              : "";
+            {imageUrl && (
+            <img src={imageUrl} alt={order.product_name} />
+          )}
 
             return (
               <div className="order_card" key={order.id}>
