@@ -482,10 +482,10 @@
 /* Mobile adjustments (≤480px) */
 @media (max-width: 480px) {
     .popupcart {
-        max-width: 320px;  
-        width: 95%;
-        gap: 6px;
-        padding: 10px;
+        max-width: 78%;
+        padding: 12px;
+        width: 78%;
+        height: 453px;
     }
     .popimage, .popdetails {
         width: 48%;       
