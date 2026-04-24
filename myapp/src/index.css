@@ -517,3 +517,11 @@ h1 {
     font-size: 14px;
   }
 }
+
+
+@media (max-width: 480px) {
+  img, video {
+    object-fit: contain !important;
+    background: black; /* optional */
+  }
+}
