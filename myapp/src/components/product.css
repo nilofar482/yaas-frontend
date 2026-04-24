@@ -481,12 +481,6 @@
 
 /* Mobile adjustments (≤480px) */
 @media (max-width: 480px) {
-    .popupcart {
-        max-width: 78%;
-        padding: 12px;
-        width: 78%;
-        height: 453px;
-    }
     .popimage, .popdetails {
         width: 48%;       
         min-width: 120px; 
@@ -504,10 +498,10 @@
 /* Vertical layout for ≤468px */
 @media (max-width: 468px) {
     .popupcart {
-        flex-direction: column;
-        max-width: 95%;
-        width: 95%;
+        max-width: 78%;
         padding: 12px;
+        width: 78%;
+        height: 453px;
     }
 
     .popmain {
