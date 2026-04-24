@@ -432,6 +432,12 @@
     gap: 10px;
     margin-top: 15px;
 }
+.quantity-section button{
+    background: white;
+    border: 1px solid #8080808c;
+    height: 31px;
+    width: 31px;
+}
 
 /* Overlay */
 .overlay {
@@ -524,6 +530,10 @@
         width: 42%;
         display: flex;
         gap: 4px;
+  }
+  .quantity-section button{
+    height: 23px;
+    width: 22px;
   }
   .popimage img {
     width: 100%;
