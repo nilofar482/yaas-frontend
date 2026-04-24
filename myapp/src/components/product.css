@@ -551,7 +551,9 @@
   .qty-section button{
     height: 22px;
   }
-
+  .qty_btn{
+    height: 22px;
+  }
 
   /* SIZE BOX COMPACT */
   .size_box {
@@ -2003,9 +2005,6 @@ width: 40px;
 
   .price {
     font-size: 16px;
-  }
-  .qty_btn{
-    height: 22px;
   }
 }
 
