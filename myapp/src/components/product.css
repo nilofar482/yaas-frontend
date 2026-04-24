@@ -518,9 +518,10 @@
     margin-top: 0px;
   }
   .qty-section{
-    margin-bottom: 1px;
-    width: 42%;
-    gap: 7px;
+       margin-bottom: 1px;
+        width: 42%;
+        height: 22px;
+        margin-left: 10px;
   }
   .popimage img {
     width: 100%;
