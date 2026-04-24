@@ -548,6 +548,10 @@
   .size_var {
     font-size: 13px;
   }
+  .qty-section button{
+    height: 24px;
+  }
+
 
   /* SIZE BOX COMPACT */
   .size_box {
