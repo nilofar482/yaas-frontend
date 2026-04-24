@@ -426,7 +426,7 @@
 }
 
 /* Quantity section */
-.qty-section {
+.quantity-section {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -518,10 +518,12 @@
     margin-top: 0px;
   }
   .quantity-section{
-       margin-bottom: 1px;
-        width: 42%;
         height: 22px;
-        margin-left: 10px;
+        margin-bottom: 1px;
+        /* margin-left: 0px; */
+        width: 42%;
+        display: flex;
+        gap: 4px;
   }
   .popimage img {
     width: 100%;
@@ -548,12 +550,6 @@
   .color_var,
   .size_var {
     font-size: 13px;
-  }
-  .qty-section button{
-    height: 22px;
-  }
-  .qty_btn{
-    height: 22px;
   }
 
   /* SIZE BOX COMPACT */
