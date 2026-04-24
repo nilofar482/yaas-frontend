@@ -125,14 +125,21 @@ function Checkout() {
       name: product?.name,
       price: product?.price,
       quantity: qty,
-      size: isPerfume ? "" : selectedSize?.size || "",
-      color: isPerfume ? "" : selectedColor?.color_name || "",
-      image: product.image 
+
+      // ✅ PERFUME RULE
+      ...(isPerfume
+        ? {
+            image: product?.image || imageUrl
+          }
+        : {
+            size: selectedSize?.size || "",
+            color: selectedColor?.color_name || "",
+            image: selectedColorObj?.image1 || selectedColor?.image1
+          })
     },
 
     quantity: qty,
-    price: product?.price,   // 🔥 IMPORTANT FIX
-
+    price: product?.price,
     total_amount: total,
 
     area: form.area,
