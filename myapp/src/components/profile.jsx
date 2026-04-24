@@ -198,7 +198,6 @@ function Profile() {
                   <h4>{order.product_name}</h4>
                   <p>Price: AED {order.price}</p>
                   <p>Qty: {order.quantity}</p>
-                  <p>Total: AED {order.total}</p>
                   <p>Status: {order.status}</p>
                 </div>
               </div>
