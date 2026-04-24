@@ -514,10 +514,17 @@
     width: 45%;
     min-width: 120px;
   }
-
+  .line{
+    margin-top: 0px;
+  }
+  .qty-section{
+    gap: 7px;
+    margin-bottom: 4px;
+    width: 42%;
+  }
   .popimage img {
     width: 100%;
-    height: 180px; /* 🔥 compact height */
+    height: 243x; /* 🔥 compact height */
     object-fit: cover;
     border-radius: 5px;
   }
