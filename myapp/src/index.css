@@ -310,6 +310,56 @@ h1 {
     gap: 12px;
   }
 }
+@media screen and (max-width:768px) {
+
+  /* NAV MAIN STACK */
+  .navmain {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 12px 0;
+  }
+
+  /* LOGO TOP (LEFT LITTLE) */
+  .logo {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+  }
+
+  .logo img {
+    width: 85px;
+    margin: 0;
+  }
+
+  /* ICONS TOP RIGHT */
+  .navend {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    gap: 10px;
+  }
+
+  /* MENU BELOW LOGO */
+  .navcenter {
+    width: 100%;
+    margin-top: 50px; /* 👈 pushes below logo */
+    display: flex;
+    justify-content: center;
+  }
+
+  .navcenter ul {
+    flex-direction: row;  /* 🔥 horizontal */
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .navcenter ul li a {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+}
 /* MOBILE */
 @media screen and (max-width:480px) {
 
