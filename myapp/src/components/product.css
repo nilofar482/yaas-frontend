@@ -326,6 +326,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     width: 100%;
+    align-items: center;
     gap: 10px;
     justify-content: flex-start;
 }
@@ -333,15 +334,18 @@
 /* Image section */
 .popimage {
     position: relative;
-    width: 48%;              
-    min-width: 140px;       
-    height: auto;
+    width: 48%;
+    min-width: 140px;
+    height: 100%;              /* ✅ ADD THIS */
+    display: flex;             /* ✅ ADD */
+    align-items: center;       /* ✅ ADD */
+    justify-content: center;   /* ✅ ADD */
 }
 
 .popimage img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;   /* ✅ CHANGE (important) */
 }
 
 /* Product details */
@@ -349,7 +353,7 @@
     width: 48%;              
     min-width: 140px;
     text-align: left;
-    margin-top: 21px;
+    margin-top: 0px;
 }
 
 .popdetails h2 {
@@ -510,8 +514,8 @@
   }
 
   .popmain {
-    flex-direction: row; /* 🔥 KEEP ROW */
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center; /* ✅ CENTER IMAGE PERFECTLY */
     gap: 10px;
   }
 
@@ -519,7 +523,14 @@
   .popimage {
     width: 45%;
     min-width: 120px;
-    margin-top: 15px;
+    display: flex;
+    align-items: center;   /* ✅ vertical center inside box */
+    justify-content: center; /* ✅ horizontal center */
+  }
+  .popimage img {
+    max-height: 200px;  /* ✅ control height */
+    width: 100%;
+    object-fit: contain; /* 🔥 IMPORTANT (no crop, clean center) */
   }
   .line{
     margin-top: 10px;
@@ -536,17 +547,10 @@
     height: 23px;
     width: 22px;
   }
-  .popimage img {
-    width: 100%;
-    height: 243x; /* 🔥 compact height */
-    object-fit: cover;
-    border-radius: 5px;
-  }
 
   /* DETAILS RIGHT SIDE */
   .popdetails {
     width: 55%;
-    text-align: left;
     margin-top: 0;
   }
 
