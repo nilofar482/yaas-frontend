@@ -588,14 +588,8 @@
 }
 @media screen and (max-width:375px) {
   .popimage{
-    margin-top: 34px;
+    margin-top: 13px;
   }
-}
-@media screen and (max-width:328px) {
-  .popimage{
-    margin-top: 48px;
-  }
-  
 }
 
 /* filter */
