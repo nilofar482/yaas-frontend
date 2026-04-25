@@ -307,53 +307,48 @@
     width: 90%;
     max-width: 672px;     
     height: auto;
-    max-height: 80%;          /* popup won't cover full screen */
+    max-height: 85%;
     z-index: 1000;
     padding: 15px;
     box-shadow: 0px 0px 8px grey;
     background: #fff;
-    overflow-x: auto;
     overflow-y: auto;
     border-radius: 8px;
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    align-items: center;
 }
 
-/* Main content: image + details */
+/* Main content */
 .popmain {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     width: 100%;
-    align-items: center;
+    align-items: stretch; /* equal height */
     gap: 10px;
-    justify-content: flex-start;
 }
 
-/* Image section */
+/* Image */
 .popimage {
-    position: relative;
-    width: 48%;
+    width: 50%;
     min-width: 140px;
-    height: 100%;              /* ✅ ADD THIS */
-    display: flex;             /* ✅ ADD */
-    align-items: center;       /* ✅ ADD */
-    justify-content: center;   /* ✅ ADD */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .popimage img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;   /* ✅ CHANGE (important) */
+    max-width: 100%;
+    max-height: 260px;
+    object-fit: contain;
 }
 
-/* Product details */
+/* Details */
 .popdetails {
-    width: 48%;              
+    width: 50%;
     min-width: 140px;
-    text-align: left;
-    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .popdetails h2 {
@@ -368,14 +363,8 @@
     font-size: 16px;
 }
 
-/* Color and size boxes */
-.color_box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
-}
-
+/* Color & Size */
+.color_box,
 .size_box {
     display: flex;
     flex-wrap: wrap;
@@ -395,13 +384,13 @@
     transform: scale(1.1);
 }
 
-.size_var{
+.size_var {
     margin-top: 13px;
 }
 
 .size_item {
     padding: 8px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccca6;
     background: white;
     cursor: pointer;
     font-size: 12px;
@@ -417,7 +406,22 @@
     cursor: not-allowed;
 }
 
-/* Buy button */
+/* Quantity */
+.quantity-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.quantity-section button {
+    background: white;
+    border: 1px solid #cccccca6;
+    height: 31px;
+    width: 31px;
+}
+
+/* Button */
 .buy_now {
     width: 100%;
     padding: 8px;
@@ -427,20 +431,6 @@
     cursor: pointer;
     margin-top: 10px;
     font-size: 14px;
-}
-
-/* Quantity section */
-.quantity-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-}
-.quantity-section button{
-    background: white;
-    border: 1px solid #8080808c;
-    height: 31px;
-    width: 31px;
 }
 
 /* Overlay */
@@ -457,7 +447,7 @@
     z-index: 1000;
 }
 
-/* Navigation arrows */
+/* Arrows */
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -475,83 +465,45 @@
 .prev { left: 5px; }
 .next { right: 5px; }
 
-.prev:hover, .next:hover { background: #00000024; }
+.prev:hover, .next:hover {
+    background: #00000024;
+}
 
 /* Close button */
 .remove2 {
     right: 10px;
     top: 10px;
-    position: absolute;      /* changed from fixed to absolute */
+    position: absolute;
     background-color: white;
-    border: 0px;
+    border: 0;
     font-size: 18px;
     cursor: pointer;
-    z-index: 1100;           /* ensure on top of popup */
+    z-index: 1100;
 }
 
-/* Mobile adjustments (≤480px) */
-@media (max-width: 480px) {
-    .popimage, .popdetails {
-        width: 48%;       
-        min-width: 120px; 
-    }
-    .popdetails h2 { font-size: 23px; }
-    .popdetails p { font-size: 16px; }
-    .size_item { padding: 7px 12px;; font-size: 11px; }
-    .buy_now { font-size: 12px; padding: 10px; }
-    .prev, .next { font-size: 18px; height: 25px; width: 25px; }
-    .qty-section{
-      justify-content: center;
-    }
-}
-
-@media (max-width: 468px) {
+/* MOBILE */
+@media (max-width: 600px) {
 
   .popupcart {
-    width: 89%;
-    max-width: 89%;
+    width: 90%;
     padding: 10px;
   }
 
   .popmain {
     flex-direction: row;
-    align-items: center; /* ✅ CENTER IMAGE PERFECTLY */
-    gap: 10px;
+    align-items: center;
   }
 
-  /* IMAGE SMALL LEFT SIDE */
   .popimage {
     width: 45%;
-    min-width: 120px;
-    display: flex;
-    align-items: center;   /* ✅ vertical center inside box */
-    justify-content: center; /* ✅ horizontal center */
-  }
-  .popimage img {
-    max-height: 200px;  /* ✅ control height */
-    width: 100%;
-    object-fit: contain; /* 🔥 IMPORTANT (no crop, clean center) */
-  }
-  .line{
-    margin-top: 10px;
-  }
-  .quantity-section{
-        height: 22px;
-        margin-bottom: 1px;
-        /* margin-left: 0px; */
-        width: 42%;
-        display: flex;
-        gap: 4px;
-  }
-  .quantity-section button{
-    height: 23px;
-    width: 22px;
   }
 
-  /* DETAILS RIGHT SIDE */
+  .popimage img {
+    max-height: 180px;
+  }
+
   .popdetails {
     width: 55%;
-    margin-top: 0;
   }
 
   .popdetails h2 {
@@ -562,38 +514,22 @@
     font-size: 14px;
   }
 
-  .color_var,
-  .size_var {
-    font-size: 13px;
-  }
-
-  /* SIZE BOX COMPACT */
-  .size_box {
-    gap: 4px;
-  }
-
   .size_item {
     padding: 5px 8px;
     font-size: 10px;
   }
 
-  /* BUTTON */
   .buy_now {
     font-size: 12px;
     padding: 8px;
   }
 
-  /* ARROWS SMALL */
   .prev, .next {
     font-size: 16px;
     width: 22px;
     height: 22px;
   }
-}
-@media screen and (max-width:375px) {
-  .popimage{
-    margin-top: 13px;
-  }
+
 }
 
 /* filter */
