@@ -374,7 +374,7 @@ h1 {
   }
 
   .navcenter ul li a {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .navend {
@@ -383,7 +383,7 @@ h1 {
 }
 @media screen and (max-width:375px) {
   .navcenter ul{
-    gap: 10px;
+    gap: 23px;
   }
   .navcenter ul li a{
     font-size: 10px;
