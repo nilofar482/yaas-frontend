@@ -259,51 +259,76 @@ h1 {
 
 @media screen and (max-width:1024px) {
 
-  /* LAYOUT */
-  .navmain {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 0;
+  /* NAVBAR WIDTH SMALL (NOT FULL WIDTH) */
+  .navbar {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
   }
 
-  /* LOGO */
+  /* MAIN LAYOUT */
+  .navmain {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  /* LOGO LEFT */
   .logo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 15px;
+  }
+
+  .logo img {
+    width: 90px;
+    margin: 0;
+  }
+
+  /* REMOVE CENTER LOGO */
+  .logo2 {
     display: none;
   }
 
-  .logo2 {
-    display: block;
-    text-align: center;
-  }
-
-  /* ICONS TOP RIGHT */
+  /* ICONS RIGHT */
   .navend {
     position: absolute;
     right: 10px;
     top: 15px;
   }
 
-  /* MENU BELOW */
+  /* MENU CENTER PERFECT ALIGN */
   .navcenter {
-    display: flex;
-    width: 100%;
-    order: 3;
-    justify-content: center;
-    margin-top: 10px;
+    width: auto;
+    margin-top: 50px;
   }
 
   .navcenter ul {
     flex-direction: column;
-    gap: 15px;
     align-items: center;
+    gap: 12px;
+  }
+
+  .navcenter ul li a {
+    text-align: center;
   }
 }
-
 /* MOBILE */
 @media screen and (max-width:480px) {
 
-  .navcenter ul {
-    gap: 10px;
+  .navbar {
+    width: 95%;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  .navcenter {
+    margin-top: 45px;
   }
 
   .navcenter ul li a {
@@ -311,13 +336,9 @@ h1 {
     letter-spacing: 1px;
   }
 
-  .logo2 img {
-    width: 80px;
-  }
-
   .navend {
     top: 10px;
-    right: 5px;
-    gap: 10px;
+    right: 8px;
+    gap: 8px;
   }
 }
