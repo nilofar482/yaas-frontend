@@ -519,6 +519,7 @@
   .popimage {
     width: 45%;
     min-width: 120px;
+    margin-top: 25px;
   }
   .line{
     margin-top: 0px;
@@ -584,6 +585,17 @@
     width: 22px;
     height: 22px;
   }
+}
+@media screen and (max-width:375px) {
+  .popimage{
+    margin-top: 34px;
+  }
+}
+@media screen and (max-width:328px) {
+  .popimage{
+    margin-top: 48px;
+  }
+  
 }
 
 /* filter */
