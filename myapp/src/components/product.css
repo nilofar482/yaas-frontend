@@ -614,18 +614,7 @@
   text-align: center;
   letter-spacing: 1px;
 }
-.product-cardsandle{
-  width: 260px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.4s ease;
-}
-@media screen and (max-width:468px) {
-  .product-cardsandle{
-    width: 100%;
-  }
-  
-}
+
 .filter_main {
   width: 260px;
   padding: 20px;
