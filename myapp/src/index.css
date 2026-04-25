@@ -259,33 +259,29 @@ h1 {
 
 @media screen and (max-width:1024px) {
 
-  /* NAVBAR WIDTH SMALL (NOT FULL WIDTH) */
+  /* FULL WIDTH NAVBAR */
   .navbar {
-    width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 6px;
+    width: 100%;
+    left: 0;
+    transform: none;
   }
 
-  /* MAIN LAYOUT */
+  /* NORMAL ROW LAYOUT */
   .navmain {
-    position: relative;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 15px;
   }
 
   /* LOGO LEFT */
   .logo {
     display: block;
-    position: absolute;
-    left: 10px;
-    top: 15px;
   }
 
   .logo img {
     width: 90px;
-    margin: 0;
+    margin-left: 10px;
   }
 
   /* REMOVE CENTER LOGO */
@@ -293,52 +289,45 @@ h1 {
     display: none;
   }
 
-  /* ICONS RIGHT */
-  .navend {
-    position: absolute;
-    right: 10px;
-    top: 15px;
-  }
-
-  /* MENU CENTER PERFECT ALIGN */
+  /* MENU CENTER (HORIZONTAL) */
   .navcenter {
     width: auto;
-    margin-top: 50px;
   }
 
   .navcenter ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    flex-direction: row;   /* 🔥 IMPORTANT */
+    gap: 20px;
   }
 
   .navcenter ul li a {
-    text-align: center;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  /* ICONS RIGHT */
+  .navend {
+    position: static;
+    gap: 12px;
   }
 }
 /* MOBILE */
 @media screen and (max-width:480px) {
 
-  .navbar {
-    width: 95%;
-  }
-
   .logo img {
     width: 70px;
   }
 
-  .navcenter {
-    margin-top: 45px;
+  .navcenter ul {
+    gap: 12px;
+    flex-wrap: wrap; /* prevents overflow */
+    justify-content: center;
   }
 
   .navcenter ul li a {
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 11px;
   }
 
   .navend {
-    top: 10px;
-    right: 8px;
     gap: 8px;
   }
 }
