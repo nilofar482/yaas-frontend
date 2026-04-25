@@ -101,7 +101,7 @@ function Allperfume(){
             }, 0);
 
             return (
-              <div key={s.id} className="product-card">
+              <div key={s.id} className="product-cardsandle">
 
                 <div className="img-box">
                   {s.colors && s.colors.length > 0 ? (
