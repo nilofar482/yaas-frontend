@@ -161,8 +161,8 @@ h1 {
   text-decoration: none;
   color: #f5f5f5;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  letter-spacing: 2px;
+  font-size: 18px;
+  letter-spacing: 1px;
   padding: 6px 0;
   transition: all 0.3s ease;
 }
@@ -294,7 +294,7 @@ h1 {
   }
 
   .navcenter ul li a {
-    font-size: 13px;
+    font-size: 18px;
     letter-spacing: 1px;
   }
 
@@ -353,7 +353,7 @@ h1 {
   }
 
   .navcenter ul li a {
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 1px;
   }
 }
@@ -373,7 +373,7 @@ h1 {
   }
 
   .navcenter ul li a {
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .navend {
@@ -382,7 +382,7 @@ h1 {
 }
 @media screen and (max-width:375px) {
   .navcenter ul{
-    gap: 16px;
+    gap: 13px;
   }
   .navcenter ul li a{
     font-size: 10px;
