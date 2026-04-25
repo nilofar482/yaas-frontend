@@ -149,7 +149,7 @@ function Allperfume(){
                 </div>
 
                 <div className="product_name">
-                  {s.name} - {s.colors?.[0]?.color_name}
+                  {s.name}
                 </div>
                 <div className="price">AED {s.price}</div>
 
