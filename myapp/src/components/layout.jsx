@@ -87,11 +87,11 @@ function Layout() {
 
           <div className="navcenter">
             <ul>
-              <li><Link to="/">HOME</Link></li>
-              <li><Link to="about">ABOUT</Link></li>
-              <li><Link to="allsandle">SANDLES</Link></li>
-              <li><Link to="allperfume">PERFUMES</Link></li>
-              <li><a href="#contact">CONTACT</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="about">About</Link></li>
+              <li><Link to="allsandle">Sandles</Link></li>
+              <li><Link to="allperfume">Perfumes</Link></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
 
