@@ -377,7 +377,7 @@ h1 {
   }
 
   .navend {
-    gap: 8px;
+    gap: 1px;
   }
 }
 @media screen and (max-width:375px) {
