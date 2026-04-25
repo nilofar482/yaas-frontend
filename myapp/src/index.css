@@ -318,6 +318,8 @@ h1 {
   /* LOGO TOP (LEFT LITTLE) */
   .logo {
     position: absolute;
+    left: 0px;
+    top: 0px;
   }
 
   .logo img {
@@ -385,6 +387,9 @@ h1 {
   }
   .navcenter ul li a{
     font-size: 10px;
+  }
+  .nav_icon{
+    width: 28px;
   }
   
 }
