@@ -413,7 +413,7 @@ h1 {
   .content{
     left: 50%;
     top: 50%;
-    line-height: 50px;
+    line-height: 42px;
   }
   .content p{
     font-size: 29px;
@@ -421,10 +421,14 @@ h1 {
 }
 @media screen and (max-width:480px) {
   .content p{
-    font-size: 21px;
+    font-size: 19px;
   }
   .homebutton{
     padding: 10px 26px;
+  }
+  .content{
+    left: 50%;
+    top: 53%;
   }
   
 }
