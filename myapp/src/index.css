@@ -409,20 +409,6 @@ h1 {
   letter-spacing: 4px;
   text-transform: uppercase;
 }
-.fade-overlay {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10; /* BELOW content */
-  background: rgba(0,0,0,0.3); /* optional */
-}
-video, img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
 @media screen and (max-width:768px) {
   .content{
     left: 50%;
