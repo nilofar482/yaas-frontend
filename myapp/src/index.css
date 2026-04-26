@@ -395,7 +395,7 @@ h1 {
 }
 .content {
   position: absolute;
-  top: 18%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20; /* 🔥 MUST be higher than overlay + video */
