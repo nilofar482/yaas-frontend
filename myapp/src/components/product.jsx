@@ -10,6 +10,7 @@ function Product() {
     <div>
 
 <div className="products">
+  <p>Top Sales</p>
   <button 
     className={category === "sandles" ? "active" : ""}
     onClick={() => setCategory("sandles")}
