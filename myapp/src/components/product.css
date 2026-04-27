@@ -227,6 +227,10 @@
   opacity: 1;
   transform: translateY(0);
 }
+.product-card1:hover .carticon {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .carticon button {
   border: none;
