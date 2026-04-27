@@ -44,6 +44,7 @@ function KanduraSlider() {
 
   return (
     <div>
+    <p className='top-sales'>Premium Kandura Collection</p>
       <div className="split-wrapper">
 
         {/* LEFT SIDE: VIDEO */}
