@@ -295,6 +295,54 @@
     font-size: 14px;
   }
 }
+/* 🔥 SCROLL ENABLE */
+.product_list {
+  overflow-x: auto;
+  flex-wrap: nowrap; /* 👈 IMPORTANT */
+  scroll-behavior: smooth;
+}
+
+/* hide scrollbar */
+.product_list::-webkit-scrollbar {
+  display: none;
+}
+
+/* fix card width for scroll */
+.product-card {
+  min-width: 260px;
+}
+
+/* wrapper */
+.scroll_wrapper {
+  position: relative;
+}
+
+/* buttons */
+.scroll_btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+}
+
+/* left */
+.scroll_btn.left {
+  left: 0;
+}
+
+/* right */
+.scroll_btn.right {
+  right: 0;
+}
+
 /* popup */
 
 /* Popup Cart */
