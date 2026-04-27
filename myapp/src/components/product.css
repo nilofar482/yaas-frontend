@@ -602,6 +602,13 @@
     object-fit: contain;
   }
 
+  .carticon{
+    right: 9px;
+    top: 8px;
+  }
+  .split-wrapper{
+    width: 93%;
+  }
   .popdetails {
     width: 55%;
     display: flex;
@@ -2169,7 +2176,7 @@ width: 40px;
     height: 88vh;
     background-color: #fff;
     margin: auto;
-    margin-top: 118px;
+    margin-top: 191px;
 }
 
 /* --- Video Styling --- */
