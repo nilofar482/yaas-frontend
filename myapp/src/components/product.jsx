@@ -14,14 +14,14 @@ function Product() {
     className={category === "sandles" ? "active" : ""}
     onClick={() => setCategory("sandles")}
   >
-    sandles
+    Sandles
   </button>
 
   <button 
     className={category === "perfumes" ? "active" : ""}
     onClick={() => setCategory("perfumes")}
   >
-    perfumes
+    Perfumes
   </button>
 
 </div>

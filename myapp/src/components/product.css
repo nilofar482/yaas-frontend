@@ -99,12 +99,10 @@
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 120px;
 }
 
 .products button {
   font-size: 22px;
-  text-transform: uppercase;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
   border: none;
@@ -3194,14 +3192,16 @@ width: 40px;
 
 /* top sales */
 .top-sales {
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  color: #444;
-  margin-top: 80px;
-  margin-bottom: 25px;
-  position: relative;
+    color: #444;
+    font-family: Cormorant Garamond, serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    margin-top: 80px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 /* underline luxury style */
