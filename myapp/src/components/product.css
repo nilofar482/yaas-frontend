@@ -3190,3 +3190,26 @@ width: 40px;
     font-size: 13px;
     font-weight: 600;
 }
+
+
+/* top sales */
+.top-sales {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #444;
+  margin-top: 80px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+/* underline luxury style */
+.top-sales::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #c9a45c; /* gold tone */
+  margin: 10px auto 0;
+}

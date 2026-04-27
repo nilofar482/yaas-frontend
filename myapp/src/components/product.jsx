@@ -8,7 +8,7 @@ function Product() {
 
   return (
     <div>
-      <p>Top Sales</p>
+      <p className="top-sales">Top Sales</p>
 <div className="products">
   <button 
     className={category === "sandles" ? "active" : ""}
