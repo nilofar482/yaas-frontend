@@ -280,19 +280,22 @@
   }
 
   .product-card {
-    width: 46%; 
+    min-width: 212px;
   }
 
   .img-box {
-    height: 209px; 
+    height: 257px;
+    width: 194px; 
   }
 
   .product_name {
     font-size: 16px;
+    margin-left: -19px;
   }
 
   .price {
     font-size: 14px;
+    margin-left: -20px;
   }
 }
 /* 🔥 SCROLL ENABLE */
