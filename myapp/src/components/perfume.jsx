@@ -6,7 +6,7 @@ function Perfumes() {
   const [product, setproduct] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const scrollRef = useRef(); // 👈 scroll
+  const scrollRef = useRef();
 
   useEffect(() => {
     axios
@@ -15,37 +15,23 @@ function Perfumes() {
       .catch((err) => console.log(err));
   }, []);
 
-  // 👉 scroll functions
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({
-      left: -300,
-      behavior: "smooth",
-    });
+    scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({
-      left: 300,
-      behavior: "smooth",
-    });
+    scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
   };
 
   return (
     <div>
-
-      {/* 🔥 SCROLL WRAPPER */}
       <div className="scroll_wrapper">
 
-        {/* LEFT BUTTON */}
-        <button className="scroll_btn left" onClick={scrollLeft}>
-          ‹
-        </button>
+        <button className="scroll_btn left" onClick={scrollLeft}>‹</button>
 
-        {/* PRODUCT LIST */}
         <div className="product_list" ref={scrollRef}>
           {product.map((s) => {
 
-            // 🔥 stock check (optional keep cheyyam)
             const totalStock = s.colors?.reduce((total, color) => {
               return total + (color.sizes?.reduce((sum, size) => sum + (size.stock || 0), 0) || 0);
             }, 0);
@@ -53,13 +39,22 @@ function Perfumes() {
             return (
               <div key={s.id} className="product-card1">
 
-                {/* IMAGE */}
+                {/* ✅ IMAGE + HOVER */}
                 <div className="img-box">
                   {s.colors && s.colors.length > 0 ? (
-                    <img
-                      src={`https://api.yaasgents.com${s.colors[0].image1}`}
-                      alt={s.name}
-                    />
+                    <>
+                      <img
+                        src={`https://api.yaasgents.com${s.colors[0].image1}`}
+                        alt={s.name}
+                      />
+                      {s.colors[0].image2 && (
+                        <img
+                          src={`https://api.yaasgents.com${s.colors[0].image2}`}
+                          alt={s.name}
+                          className="hover-img"
+                        />
+                      )}
+                    </>
                   ) : (
                     <p>No Image</p>
                   )}
@@ -70,7 +65,7 @@ function Perfumes() {
                   <div className="sold_out">Out of Stock</div>
                 )}
 
-                {/* CART ICON */}
+                {/* ✅ SVG ICON (same as sandles) */}
                 <div className="carticon">
                   <button onClick={() => setSelectedProduct(s)}>
                     <svg
@@ -91,9 +86,7 @@ function Perfumes() {
                 </div>
 
                 {/* NAME */}
-                <div className="product_name">
-                  {s.name}
-                </div>
+                <div className="product_name">{s.name}</div>
 
                 {/* PRICE */}
                 <div className="price">AED {s.price}</div>
@@ -103,11 +96,7 @@ function Perfumes() {
           })}
         </div>
 
-        {/* RIGHT BUTTON */}
-        <button className="scroll_btn right" onClick={scrollRight}>
-          ›
-        </button>
-
+        <button className="scroll_btn right" onClick={scrollRight}>›</button>
       </div>
 
       {selectedProduct && (
@@ -116,7 +105,6 @@ function Perfumes() {
           product={{ ...selectedProduct, category: "perfumes" }}
         />
       )}
-
     </div>
   );
 }
