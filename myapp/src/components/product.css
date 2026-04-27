@@ -286,7 +286,7 @@
   }
 
   .product-card {
-    min-width: 212px;
+    min-width: 114px;
   }
 
   .img-box {
@@ -3281,7 +3281,7 @@ width: 40px;
 }
 @media screen and (max-width:768px) {
   .img-box{
-    height: 267px;
+    height: 324px;
   }
   .product-card{
     min-width: 176;
@@ -3292,6 +3292,9 @@ width: 40px;
   .img-box{
       width: 164px;
       height: 207px;
+  }
+  .product-card1{
+    min-width: 173px;
   }
   
 }
