@@ -8,9 +8,8 @@ function Product() {
 
   return (
     <div>
-
+      <p>Top Sales</p>
 <div className="products">
-  <p>Top Sales</p>
   <button 
     className={category === "sandles" ? "active" : ""}
     onClick={() => setCategory("sandles")}
