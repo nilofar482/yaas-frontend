@@ -50,7 +50,7 @@ function Sandles() {
             }, 0);
 
             return (
-              <div key={s.id} className="product-card">
+              <div key={s.id} className="product-card1">
 
                 <div className="img-box">
                   {s.colors && s.colors.length > 0 ? (

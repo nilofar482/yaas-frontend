@@ -164,6 +164,12 @@
   overflow: hidden;
   transition: transform 0.4s ease;
 }
+.product-card1 {
+  min-width: 145px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
 
 .product-card:hover {
   transform: translateY(-8px);
@@ -310,8 +316,8 @@
   display: none;
 }
 
-.product-card {
-  min-width: 122px;
+.product-card1 {
+  min-width: 256px;
 }
 
 /* wrapper */
