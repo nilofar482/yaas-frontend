@@ -103,10 +103,10 @@ function Sandles() {
         </button>
 
       </div>
-
+{/* 
       <div className="shop_button">
         <Link to='allsandle'><button>Shop Sandles</button></Link>
-      </div>
+      </div> */}
 
       {selectedProduct && (
         <PopupCart
