@@ -3319,3 +3319,29 @@ width: 40px;
   }
   
 }
+.kan-sales {
+    color: #444;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin: 80px 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+/* animated underline */
+.kan-sales::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #c5a47e;
+    display: block;
+    margin: 10px auto 0;
+    transition: 0.4s ease;
+}
+
+.kan-sales:hover::after {
+    width: 60px;
+}
