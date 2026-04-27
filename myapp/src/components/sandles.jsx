@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import PopupCart from "./popupcart";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Sandles() {
   const [product, setproduct] = useState([]);
@@ -103,8 +103,8 @@ function Sandles() {
         </button>
 
       </div>
-{/* 
-      <div className="shop_button">
+
+      {/* <div className="shop_button">
         <Link to='allsandle'><button>Shop Sandles</button></Link>
       </div> */}
 
