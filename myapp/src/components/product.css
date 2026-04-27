@@ -3273,3 +3273,25 @@ width: 40px;
     text-align: center;
     text-transform: uppercase;
 }
+@media screen and (max-width:768px) {
+  .img-box{
+    height: 225px;
+  }
+  .product-card{
+    min-width: 176;
+  }
+  
+}
+@media screen and (max-width:480px) {
+  .product-card{
+    min-width: 176;
+  }
+  
+}
+@media screen and (max-width:375px) {
+  .img-box{
+        height: 183px;
+        width: 153px;
+  }
+  
+}
