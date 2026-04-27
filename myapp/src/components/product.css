@@ -147,14 +147,14 @@
 
 /* PRODUCT GRID */
 .product_list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 70px;
-  margin-top: 110px;
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 31px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 110px;
+    max-width: 1440px;
 }
 
 /* PRODUCT CARD */
@@ -335,12 +335,16 @@
 
 /* left */
 .scroll_btn.left {
-  left: 0;
+  left: 0px;
+    padding-left: 16px;
+    padding-top: 5px;
 }
 
 /* right */
 .scroll_btn.right {
   right: 0;
+  padding-left: 9px;
+
 }
 
 /* popup */
