@@ -3325,8 +3325,20 @@ width: 40px;
     font-size: 22px;
     letter-spacing: 1px;
     margin-bottom: 25px;
-    margin-top: 80px;
+    margin-top: 187px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
+}
+@media screen and (max-width:480px) {
+  .kan-sales{
+    font-size: 17px;
+  }
+  
+}
+@media screen and (max-width:375px) {
+  .kan-sales{
+    font-size: 14px;
+  }
+  
 }
