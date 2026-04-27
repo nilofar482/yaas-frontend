@@ -310,7 +310,6 @@
   display: none;
 }
 
-/* fix card width for scroll */
 .product-card {
   min-width: 212px;
 }
