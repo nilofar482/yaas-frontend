@@ -10,7 +10,7 @@ function Sandles() {
   const scrollRef = useRef(); // 👈 scroll control
 
   useEffect(() => {
-    axios.get("https://api.yaasgents.com/api/product_data/?category=sandles&trending=true")
+    axios.get("https://api.yaasgents.com/api/product_data/?category=sandles")
       .then((res) => setproduct(res.data))
       .catch((err) => console.log(err));
   }, []);
