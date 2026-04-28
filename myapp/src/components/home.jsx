@@ -47,7 +47,6 @@ function Home() {
 
   return (
     <>
-      {/* 🔥 CAROUSEL */}
       <div
         style={{
           width: "100%",

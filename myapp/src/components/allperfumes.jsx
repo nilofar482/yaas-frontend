@@ -4,10 +4,8 @@ import PopupCart from "./popupcart";
 
 function Allperfume(){
   const [product, setproduct] = useState([]);
-  const [minPrice] = useState(0); // FIXED (removed setMinPrice)
-
-  // const [maxPrice, setMaxPrice] = useState(500);
-  const [maxPrice] = useState(500); // FIX: removed unused setter safely
+  const [minPrice] = useState(0); 
+  const [maxPrice] = useState(500); 
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);

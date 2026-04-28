@@ -7,7 +7,7 @@ function Sandles() {
   const [product, setproduct] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const scrollRef = useRef(); // 👈 scroll control
+  const scrollRef = useRef();
 
   useEffect(() => {
     axios.get("https://api.yaasgents.com/api/product_data/?category=sandles&trending=true")
@@ -32,16 +32,10 @@ function Sandles() {
 
   return (
     <div>
-
-      {/* 🔥 SCROLL WRAPPER */}
       <div className="scroll_wrapper">
-
-        {/* LEFT BUTTON */}
         <button className="scroll_btn left" onClick={scrollLeft}>
           ‹
         </button>
-
-        {/* 👇 SAME PRODUCT LIST (just ref added) */}
         <div className="product_list" ref={scrollRef}>
           {product.map((s) => {
 

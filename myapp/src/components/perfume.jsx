@@ -39,7 +39,6 @@ function Perfumes() {
             return (
               <div key={s.id} className="product-card1">
 
-                {/* ✅ IMAGE + HOVER */}
                 <div className="img-box">
                   {s.colors && s.colors.length > 0 ? (
                     <>
@@ -65,7 +64,6 @@ function Perfumes() {
                   <div className="sold_out">Out of Stock</div>
                 )}
 
-                {/* ✅ SVG ICON (same as sandles) */}
                 <div className="carticon">
                   <button onClick={() => setSelectedProduct(s)}>
                     <svg
@@ -85,10 +83,8 @@ function Perfumes() {
                   </button>
                 </div>
 
-                {/* NAME */}
                 <div className="product_name">{s.name}</div>
 
-                {/* PRICE */}
                 <div className="price">AED {s.price}</div>
 
               </div>

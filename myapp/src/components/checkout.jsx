@@ -126,7 +126,6 @@ function Checkout() {
       price: product?.price,
       quantity: qty,
 
-      // ✅ PERFUME RULE
       ...(isPerfume
         ? {
             image: product?.image || imageUrl

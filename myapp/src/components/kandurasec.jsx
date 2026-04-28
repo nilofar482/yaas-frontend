@@ -61,7 +61,7 @@ function KanduraSlider() {
             muted
             loop
             playsInline
-            preload="metadata"   // ✅ FIXED
+            preload="metadata"   
             className="main-video"
             onLoadedData={() => setVideoLoaded(true)}
             style={{ display: videoLoaded ? "block" : "none" }}

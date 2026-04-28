@@ -176,7 +176,6 @@ function Profile() {
 
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="main_profile">
         <h2>My Orders</h2>
 
@@ -185,7 +184,6 @@ function Profile() {
         ) : (
           orders.map((order) => {
 
-            // ✅ FIXED IMAGE HANDLING
             const imageUrl = order.image || "";
 
             return (
@@ -206,7 +204,6 @@ function Profile() {
         )}
       </div>
 
-      {/* WHATSAPP */}
       <div className="whatsapp">
         <button
           className="whatsapp_btn"
