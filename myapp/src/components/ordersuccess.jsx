@@ -1,42 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import axios from "axios";
 
 function OrderSuccess() {
-  // const { state } = useLocation();
   const navigate = useNavigate();
-
-useEffect(() => {
-  const saveOrder = async () => {
-    try {
-      const storedData = localStorage.getItem("orderData");
-
-      if (!storedData) {
-        console.log("NO ORDER DATA FOUND");
-        return;
-      }
-
-      const orderdata = JSON.parse(storedData);
-
-      console.log("SENDING ORDER DATA:", orderdata);
-
-      await axios.post(
-        "https://api.yaasgents.com/api/create_order/",
-        {
-          ...orderdata,
-          payment_status: "paid",
-        }
-      );
-
-      localStorage.removeItem("orderData");
-
-    } catch (error) {
-      console.log("Order save error:", error);
-    }
-  };
-
-  saveOrder(); 
-}, []);
 
   return (
     <div className="success_container">
@@ -59,7 +24,7 @@ useEffect(() => {
           className="home_btn"
           onClick={() => navigate("/")}
         >
-          shop More
+          Shop More
         </button>
 
       </div>
