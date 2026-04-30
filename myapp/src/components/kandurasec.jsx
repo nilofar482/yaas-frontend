@@ -98,21 +98,6 @@ function KanduraSlider() {
             <div className="text-overlay">
               <h2 className="p-title">{currentProduct.title}</h2>
 
-              <div className="color-row">
-                {currentProduct.colors &&
-                  currentProduct.colors.split(',').map((color, i) => {
-                    const cleanColor = color.trim();
-                    if (!cleanColor.startsWith('#')) return null;
-
-                    return (
-                      <span
-                        key={i}
-                        className="color-dot"
-                        style={{ backgroundColor: cleanColor }}
-                      ></span>
-                    );
-                  })}
-              </div>
             </div>
           </div>
 
