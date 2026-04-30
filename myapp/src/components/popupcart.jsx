@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 function PopupCart({ close, product }) {
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || null);
@@ -21,19 +20,21 @@ function PopupCart({ close, product }) {
 
   const isPerfume = product.category === "perfumes";
 
-  const handleBuyNow = async () => {
+  const handleBuyNow = () => {
+    // ✅ size validation
     if (!isPerfume && !selectedSize) {
       setShowErrorPopup(true);
       return;
     }
 
+    // ✅ login check
     let token = localStorage.getItem("access_token");
-
     if (!token) {
       setShowLoginPopup(true);
       return;
     }
 
+    // ✅ prepare checkout data
     const checkoutData = {
       product_id: product.id,
       color_id: selectedColor?.id || null,
@@ -41,16 +42,7 @@ function PopupCart({ close, product }) {
       quantity: qty,
     };
 
-    try {
-      await axios.post(
-        "https://api.yaasgents.com/api/checkout/init/",
-        checkoutData,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-    } catch (err) {
-      console.log("Buy Now Error:", err);
-    }
-
+    // ✅ go to checkout page
     navigate("/checkout", {
       state: {
         product: product,
@@ -65,14 +57,17 @@ function PopupCart({ close, product }) {
   return (
     <div className="overlay" onClick={close}>
       <div className="popupcart" onClick={(e) => e.stopPropagation()}>
-        <button className="remove2" onClick={close}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-</svg></button>
+        <button className="remove2" onClick={close}>
+          ✕
+        </button>
 
         <div className="popmain">
           <div className="popimage">
             {images.length > 0 ? (
-              <img src={`https://api.yaasgents.com${images[index]}`} alt={product.name} />
+              <img
+                src={`https://api.yaasgents.com${images[index]}`}
+                alt={product.name}
+              />
             ) : (
               <p>No Image</p>
             )}
@@ -93,7 +88,10 @@ function PopupCart({ close, product }) {
 
             {!isPerfume && (
               <>
-                <div className="color_var">Color: {selectedColor?.color_name}</div>
+                <div className="color_var">
+                  Color: {selectedColor?.color_name}
+                </div>
+
                 <div className="color_box">
                   {product.colors?.map((color) => (
                     <div
@@ -112,6 +110,7 @@ function PopupCart({ close, product }) {
                 <div className="size_var">
                   Size: {selectedSize ? selectedSize.size : "Select Size"}
                 </div>
+
                 <div className="size_box">
                   {selectedColor?.sizes?.map((s) => (
                     <button
@@ -128,7 +127,7 @@ function PopupCart({ close, product }) {
             )}
 
             <div className="quantity-section">
-              <button  onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
+              <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
               <span>{qty}</span>
               <button onClick={() => setQty(qty + 1)}>+</button>
             </div>
@@ -142,6 +141,7 @@ function PopupCart({ close, product }) {
         </div>
       </div>
 
+      {/* SIZE ERROR */}
       {showErrorPopup && (
         <div className="login_popup_overlay" onClick={() => setShowErrorPopup(false)}>
           <div className="login_popup" onClick={(e) => e.stopPropagation()}>
@@ -151,6 +151,7 @@ function PopupCart({ close, product }) {
         </div>
       )}
 
+      {/* LOGIN REQUIRED */}
       {showLoginPopup && (
         <div className="login_popup_overlay" onClick={() => setShowLoginPopup(false)}>
           <div className="login_popup" onClick={(e) => e.stopPropagation()}>
