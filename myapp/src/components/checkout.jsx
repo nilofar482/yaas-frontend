@@ -73,6 +73,7 @@ function Checkout() {
 
         if (!form.name) return setErrorMessage("Name is required");
         if (!form.email) return setErrorMessage("Email is required");
+        if (!form.phone) return setErrorMessage("Phone number is required");
         if (!form.area) return setErrorMessage("Area is required");
         if (!form.building) return setErrorMessage("Building is required");
         if (!form.flat) return setErrorMessage("Flat / Villa No is required");
