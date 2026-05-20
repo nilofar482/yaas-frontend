@@ -237,7 +237,7 @@ function Checkout() {
 
                     <input name="name" value={form.name} onChange={handleChange} />
                     <input name="email" value={form.email} hidden />
-                    <input name="phone" value={form.phone} onChange={handleChange} />
+                    <input name="phone" value={form.phone} placeholder="Phone Number" onChange={handleChange} />
 
                     <input
                         name="country"
