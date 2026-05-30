@@ -63,9 +63,9 @@ function Layout() {
   return (
     <div>
       {/* TOP BAR */}
-      <div className={scrolled ? "first hide" : "first"}>
-        {/* <div className="first1"></div> */}
-      </div>
+      {/* <div className={scrolled ? "first hide" : "first"}>
+        <div className="first1"></div>
+      </div> */}
 
       <nav
         className={`navbar ${scrolled ? "active" : ""} 
