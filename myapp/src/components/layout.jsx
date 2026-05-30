@@ -64,7 +64,7 @@ function Layout() {
     <div>
       {/* TOP BAR */}
       <div className={scrolled ? "first hide" : "first"}>
-        <div className="first1">Minimal Design, Maximum Impact</div>
+        {/* <div className="first1"></div> */}
       </div>
 
       <nav
