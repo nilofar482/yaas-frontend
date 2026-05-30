@@ -79,7 +79,7 @@ h1 {
 /* NAVBAR */
 .navbar {
     position: fixed;
-    top: 42px;
+    /* top: 42px; */
     left: 0;
     width: 100%;
     height: auto; /* FIXED */
