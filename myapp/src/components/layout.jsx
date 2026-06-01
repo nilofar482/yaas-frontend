@@ -89,7 +89,7 @@ function Layout() {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="about">About</Link></li>
-              <li><Link to="allsandle">Sandles</Link></li>
+              <li><Link to="allsandle">Sandals</Link></li>
               <li><Link to="allperfume">Perfumes</Link></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
