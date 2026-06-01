@@ -818,6 +818,7 @@
 .filter {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .sort_by {
