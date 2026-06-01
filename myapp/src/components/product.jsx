@@ -14,7 +14,7 @@ function Product() {
     className={category === "sandles" ? "active" : ""}
     onClick={() => setCategory("sandles")}
   >
-    Sandles
+    Sandals
   </button>
 
   <button 

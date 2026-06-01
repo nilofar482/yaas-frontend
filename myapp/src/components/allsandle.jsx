@@ -67,7 +67,7 @@ function Allsandle() {
   return (
     <div>
       <div className="page_title">
-        <p>Sandles</p>
+        <p>Sandals</p>
       </div>
 
       <div className="sort_by">
