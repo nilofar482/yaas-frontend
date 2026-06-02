@@ -3,6 +3,15 @@ import { useEffect, useState } from "react";
 import PopupCart from "./popupcart";
 
 function Allperfume(){
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq('track', 'ViewContent', {
+        content_name: "Perfumes Collection",
+        content_category: "Perfumes"
+      });
+    }
+  }, []);
+
   const [product, setproduct] = useState([]);
   const [minPrice] = useState(0); 
   const [maxPrice] = useState(500); 
@@ -128,7 +137,18 @@ function Allperfume(){
                 )}
 
                 <div className="carticon">
-                  <button onClick={() => setSelectedProduct(s)}>
+                  <button onClick={() => {
+                    if (window.fbq) {
+                      window.fbq('track', 'ViewContent', {
+                        content_name: s.name,
+                        content_ids: [s.id],
+                        value: Number(s.price),
+                        currency: "AED"
+                      });
+                    }
+                    setSelectedProduct(s);
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"

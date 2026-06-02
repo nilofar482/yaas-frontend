@@ -3,6 +3,15 @@ import { useEffect, useState } from "react";
 import PopupCart from "./popupcart";
 
 function Allsandle() {
+  useEffect(() => {
+  if (window.fbq) {
+    window.fbq('track', 'ViewContent', {
+      content_name: "Sandals Collection",
+      content_category: "Sandals"
+    });
+  }
+  }, []);
+
   const [product, setproduct] = useState([]);
   const [colors, setColors] = useState([]);
   const [sizes, setSizes] = useState([]);
@@ -177,7 +186,18 @@ function Allsandle() {
                 )}
 
                 <div className="carticon">
-                  <button onClick={() => setSelectedProduct(s)}>
+                  <button onClick={() => {
+                    if (window.fbq) {
+                      window.fbq('track', 'ViewContent', {
+                        content_name: s.name,
+                        content_ids: [s.id],
+                        value: Number(s.price),
+                        currency: "AED"
+                    });
+                   }
+                   setSelectedProduct(s);
+                   }}
+                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"

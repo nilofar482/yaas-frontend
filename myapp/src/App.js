@@ -1,4 +1,7 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import Home from "./components/home";
 import About from "./components/about";
@@ -13,31 +16,43 @@ import KanduraSlider from "./components/kandurasec";
 import OrderSuccess from "./components/ordersuccess";
 import PolicyPage from "./components/terms";
 
-function App(){
-  return(
-    <BrowserRouter>
+function AppWrapper() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window.fbq) {
+      window.fbq('track', 'PageView');
+    }
+  }, [location.pathname]);
+
+  return (
     <Routes>
       <Route path="/" element={<Layout/>} >
-      <Route index element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/allsandle" element={<Allsandle />} />
-      <Route path="/allperfume" element={<Allperfume />} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/signup" element={<Signup/>} />
-      <Route path="/product/:id" element={<ProductDetail />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/kandura" element={<KanduraSlider />} />
-      <Route path="/terms" element={<PolicyPage />} />
-      
-
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/allsandle" element={<Allsandle />} />
+        <Route path="/allperfume" element={<Allperfume />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/kandura" element={<KanduraSlider />} />
+        <Route path="/terms" element={<PolicyPage />} />
       </Route>
+
       <Route path="checkout" element={<Checkout />} />
       <Route path="/success" element={<OrderSuccess />} />
-      
-
     </Routes>
-    </BrowserRouter>
-  )
+  );
 }
-export default App
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppWrapper />
+    </BrowserRouter>
+  );
+}
+
+export default App;
