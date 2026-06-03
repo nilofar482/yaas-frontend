@@ -185,7 +185,12 @@ function Allsandle() {
                   </div>
                 )}
 
-                <div className="carticon">
+
+                <div className="product_name">
+                  {s.name} - {s.colors?.[0]?.color_name}
+                </div>
+                <div className="price">AED {s.price}</div>
+                                <div className="carticon">
                   <button onClick={() => {
                     if (window.fbq) {
                       window.fbq('track', 'ViewContent', {
@@ -200,11 +205,6 @@ function Allsandle() {
                    >buy now
                   </button>
                 </div>
-
-                <div className="product_name">
-                  {s.name} - {s.colors?.[0]?.color_name}
-                </div>
-                <div className="price">AED {s.price}</div>
 
               </div>
             );
