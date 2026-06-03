@@ -13,22 +13,29 @@ function Category() {
   }, []);
 
   return (
-    <div className="category_container">
-      <div className="heading">Our Collections</div>
-      <div className="category_main">
-        {image.map((s, index) => (
-          <div className="first_category" key={index}>
-            <img
-              src={`https://api.yaasgents.com${s.image}`}
-              alt={s.image_title}
-            />
-            <div className="category_text">
-              {s.image_title}
-            </div>
-          </div>
-        ))}
+<div className="category_container">
+  <div className="heading">Our Collections</div>
+
+  <div className="category_main">
+    {image.map((s, index) => (
+      <div className="first_category" key={index}>
+        <img
+          src={`https://api.yaasgents.com${s.image}`}
+          alt={s.image_title}
+        />
+
+        <div className="category_overlay"></div>
+
+        <div className="category_text">
+          <span className="category_name">{s.image_title}</span>
+          <span className="category_sub">
+            Crafted with elegance
+          </span>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
   );
 }
 
