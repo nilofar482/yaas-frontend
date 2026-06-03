@@ -11,17 +11,17 @@ function Product() {
       <p className="top-sales">Top Sales</p>
 <div className="products">
   <button 
-    className={category === "sandles" ? "active" : ""}
-    onClick={() => setCategory("sandles")}
-  >
-    Sandals
-  </button>
-
-  <button 
     className={category === "perfumes" ? "active" : ""}
     onClick={() => setCategory("perfumes")}
   >
     Perfumes
+  </button>
+
+  <button 
+    className={category === "sandles" ? "active" : ""}
+    onClick={() => setCategory("sandles")}
+  >
+    Sandals
   </button>
 
 </div>
