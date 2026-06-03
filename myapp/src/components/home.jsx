@@ -47,13 +47,7 @@ function Home() {
 
   return (
     <>
-      <div
-        style={{
-          width: "100%",
-          height: "62vh",
-          overflow: "hidden",
-          position: "relative"
-        }}
+      <div className="homepage"
       >
         {media.map((item, i) => (
           <div
