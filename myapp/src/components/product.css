@@ -207,29 +207,40 @@
 
 /* CART ICON */
 .carticon button {
-    width: 100%;
+  width: 100%;
   padding: 14px 20px;
   margin-top: 15px;
 
-  background: linear-gradient(
-    135deg,
-    #111 0%,
-    #2b1d0d 50%,
-    #111 100%
-  );
+  background: #0a0a0a;
   color: #d4af37;
-  border: 1px solid #d4af37;
+
+  border: 1px solid rgba(212, 175, 55, 0.6);
   border-radius: 8px;
 
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 
   cursor: pointer;
   transition: all 0.3s ease;
 
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+  box-shadow:
+    0 0 10px rgba(212, 175, 55, 0.15),
+    inset 0 0 10px rgba(212, 175, 55, 0.05);
+}
+
+.buy-btn:hover {
+  background: #111;
+  color: #f5d77a;
+
+  border-color: #d4af37;
+
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.4),
+    0 0 40px rgba(212, 175, 55, 0.15);
+
+  transform: translateY(-2px);
 }
 .carticon button:hover{
   background: #d4af37;
