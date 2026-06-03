@@ -18,9 +18,9 @@ function Category() {
     const name = category.toLowerCase();
 
     if (name.includes("sand")) {
-      navigate("/sandles");
+      navigate("/allsandle");
     } else if (name.includes("perfume")) {
-      navigate("/perfumes");
+      navigate("/allperfume");
     } else if (name.includes("kandura")) {
       navigate("/kandura");
     }
