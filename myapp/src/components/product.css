@@ -1045,7 +1045,7 @@
 
 .category_container{
     background: #f7f2ea;
-    padding: 3px 20px;
+    padding: 34px 20px;
 }
 
 .cat_heading{
@@ -1055,6 +1055,7 @@
     color: #b08b4f;
     margin-bottom: 60px;
     letter-spacing: 1px;
+    margin-top: 19px;
 }
 
 /* CARDS */
@@ -1121,7 +1122,7 @@
 .category_name{
     color: #fff;
     font-size: 34px;
-    font-family: 'Cinzel', serif;
+    font-family:  'Cormorant Garamond', serif;
     font-weight: 500;
 }
 
