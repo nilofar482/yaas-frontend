@@ -50,7 +50,7 @@ function Home() {
       <div
         style={{
           width: "100%",
-          height: "100vh",
+          height: "62vh",
           overflow: "hidden",
           position: "relative"
         }}
@@ -108,6 +108,8 @@ function Home() {
         </div>
       </div>
 
+      <Product />
+
       <div>
         {story.map((s, index) => (
           <div className="story" key={index}>
@@ -137,7 +139,6 @@ function Home() {
 
       <div className="line"></div>
 
-      <Product />
 
       <div className="line"></div>
 
