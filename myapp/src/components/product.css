@@ -810,8 +810,8 @@
   max-width: 1212px;
   gap: 30px;
 
-  max-height: calc(100vh - 180px);
-  overflow-y: auto;
+  /* max-height: calc(100vh - 180px); */
+  /* overflow-y: auto; */
   padding-right: 10px;
 }
 
