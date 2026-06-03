@@ -215,13 +215,18 @@
     cursor: pointer;
     font-size: 16px;
     letter-spacing: 1.5px;
-    margin-top: 15px;
     padding: 14px 20px;
     text-transform: capitalize;
     transition: all .3s ease;
     width: 100%;
 }
-
+@media screen and (max-width:475px) {
+  .carticon button{
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+}
 .carticon button:hover{
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
@@ -942,7 +947,7 @@
   }
 
   .product_list2 {
-    gap: 15px;
+    gap: 25px;
   }
 
   .sort_by {
