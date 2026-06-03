@@ -207,43 +207,23 @@
 
 /* CART ICON */
 .carticon button {
-  width: 100%;
-  padding: 14px 20px;
-  margin-top: 15px;
-
-  background: #0a0a0a;
-  color: #d4af37;
-
-  border: 1px solid rgba(212, 175, 55, 0.6);
-  border-radius: 8px;
-
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  box-shadow:
-    0 0 10px rgba(212, 175, 55, 0.15),
-    inset 0 0 10px rgba(212, 175, 55, 0.05);
+    background: #0a0a0a;
+    border: 1px solid #aa7d33;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #d4af3726, inset 0 0 8px #d4af37;
+    color: #aa7d33;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    margin-top: 15px;
+    padding: 14px 20px;
+    text-transform: capitalize;
+    transition: all .3s ease;
+    width: 100%;
 }
 
-.carticon button:hover {
-  background: #111;
-  color: #f5d77a;
-
-  border-color: #d4af37;
-
-  box-shadow:
-    0 0 20px rgba(212, 175, 55, 0.4),
-    0 0 40px rgba(212, 175, 55, 0.15);
-
-  transform: translateY(-2px);
-}
 .carticon button:hover{
-  background: #d4af37;
+  background: #aa7d33;
   color: #111;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
@@ -267,6 +247,7 @@
   letter-spacing: 1px;
   font-family: 'Cormorant Garamond', serif;
   color: #222;
+  text-align: center;
 }
 
 .price {
@@ -275,6 +256,7 @@
   font-weight: 600;
   color: #aa7d33;
   font-family: serif;
+  text-align: center;
 }
 
 .shop_button {
