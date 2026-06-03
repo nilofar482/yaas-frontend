@@ -31,6 +31,7 @@ function Category() {
           <span className="category_sub">
             Crafted with elegance
           </span>
+          <span className="category_shop"><button>Shop now</button></span>
         </div>
       </div>
     ))}
