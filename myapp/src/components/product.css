@@ -207,11 +207,11 @@
 
 /* CART ICON */
 .carticon button {
-    background: #0a0a0a;
-    border: 1px solid #aa7d33;
+    background: linear-gradient(135deg, #604a08, #d6a713);
+    border: 0px;
     border-radius: 8px;
     box-shadow: 0 0 10px #d4af3726, inset 0 0 8px #d4af37;
-    color: #aa7d33;
+    color: white;
     cursor: pointer;
     font-size: 16px;
     letter-spacing: 1.5px;
@@ -223,8 +223,6 @@
 }
 
 .carticon button:hover{
-  background: #aa7d33;
-  color: #111;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
 }
