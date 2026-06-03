@@ -1131,6 +1131,14 @@
     font-size: 14px;
     letter-spacing: .5px;
 }
+.category_shop button{
+    height: 40px;
+    width: 134px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 9px;
+}
 
 /* Hover */
 
