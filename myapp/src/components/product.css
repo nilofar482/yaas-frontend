@@ -1045,12 +1045,12 @@
 
 .category_container{
     background: #f7f2ea;
-    padding: 80px 20px;
+    padding: 3px 20px;
 }
 
-.heading{
+.cat_heading{
     text-align: center;
-    font-family: 'Cinzel', serif;
+    font-family:  'Cormorant Garamond', serif;
     font-size: 42px;
     color: #b08b4f;
     margin-bottom: 60px;
@@ -1071,7 +1071,6 @@
     overflow: hidden;
     width: 320px;
     height: 460px;
-    border-radius: 18px;
     cursor: pointer;
 
     background: #fff;

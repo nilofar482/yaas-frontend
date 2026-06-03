@@ -14,7 +14,7 @@ function Category() {
 
   return (
 <div className="category_container">
-  <div className="heading">Our Collections</div>
+  <div className="cat_heading">Our Collections</div>
 
   <div className="category_main">
     {image.map((s, index) => (
