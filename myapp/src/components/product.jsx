@@ -4,7 +4,7 @@ import Sandles from "./sandles";
 import Perfumes from "./perfume";
 
 function Product() {
- const [category, setCategory] = useState("sandles");
+ const [category, setCategory] = useState("perfumes");
 
   return (
     <div>
