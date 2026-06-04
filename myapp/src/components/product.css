@@ -336,9 +336,6 @@
   }
   
 }
-.product-card1 {
-  min-width: 256px;
-}
 @media screen and (max-width: 320px) {
   .product_list {
     gap: 8px;
@@ -3311,9 +3308,9 @@ width: 40px;
       width: 164px;
       height: 207px;
   }
-  .product-card1{
+  /* .product-card1{
     min-width: 173px;
-  }
+  } */
   
 }
 @media screen and (max-width:375px) {
