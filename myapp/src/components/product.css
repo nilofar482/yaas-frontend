@@ -162,6 +162,17 @@
     padding: 0;
   }
 }
+@media screen and (max-width:375px) {
+  .carticon button{
+        font-size: 11px;
+        height: 38px;
+        width: 125px;
+        padding: 2px 20px;
+  }
+  .product_list{
+    gap: 10px;
+  }
+}
 /* PRODUCT CARD */
 .product-card {
   min-width: 145px;
