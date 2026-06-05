@@ -224,13 +224,12 @@
 
 /* CART ICON */
 .carticon button {
-    background: linear-gradient(135deg, #604a08, #d6a713);
-    border: 0px;
+    background: #f7f2ea91;;
+    border: 1px solid #d4af37;
     border-radius: 8px;
-    box-shadow: 0 0 10px #d4af3726, inset 0 0 8px #d4af37;
-    color: white;
+    color: #000000b5;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1.5px;
     padding: 14px 20px;
     text-transform: capitalize;
@@ -2091,19 +2090,19 @@ width: 40px;
     padding: 14px;
     background:linear-gradient(135deg, #d0b560, #a17f16);
     color: white;
-    border: none;
+    border: 0px;
+    border-radius: 10px;
     font-size: 14px;
     letter-spacing: 2px;
     cursor: pointer;
-    /* border-radius: 30px; */
-    transition: 0.3s;
+    transition: all .3s ease;
     margin-top: 14px;
 
 }
 
 .buy-btn:hover {
-  background: black;
-  color: #c9a86a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
 }
 
 @media (max-width: 1024px) {
