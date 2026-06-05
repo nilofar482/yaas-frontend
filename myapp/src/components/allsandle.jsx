@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import PopupCart from "./popupcart";
+// import PopupCart from "./popupcart";
+import { useNavigate } from "react-router-dom";
 
 function Allsandle() {
+  const navigate = useNavigate();
   useEffect(() => {
   if (window.fbq) {
     window.fbq('track', 'ViewContent', {
@@ -16,7 +18,7 @@ function Allsandle() {
   const [colors, setColors] = useState([]);
   const [sizes, setSizes] = useState([]);
 
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  // const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
 
   const [minPrice] = useState(0); 
@@ -191,19 +193,20 @@ function Allsandle() {
                 </div>
                 <div className="price">AED {s.price}</div>
                                 <div className="carticon">
-                  <button onClick={() => {
+                  <button
+                  onClick={() => {
                     if (window.fbq) {
                       window.fbq('track', 'ViewContent', {
                         content_name: s.name,
                         content_ids: [s.id],
                         value: Number(s.price),
                         currency: "AED"
-                    });
-                   }
-                   setSelectedProduct(s);
-                   }}
-                   >buy now
-                  </button>
+                      });
+                    }navigate(`/product/${s.id}`);
+                    }}
+                    >
+                      view product
+                    </button>
                 </div>
 
               </div>
@@ -211,13 +214,13 @@ function Allsandle() {
           })}
         </div>
       </div>
-
+{/* 
       {selectedProduct && (
         <PopupCart
           close={() => setSelectedProduct(null)}
           product={selectedProduct}
         />
-      )}
+      )} */}
 
       <div className="whatsapp">
         <button className="whatsapp_btn"

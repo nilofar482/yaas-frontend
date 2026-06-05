@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import PopupCart from "./popupcart";
+// import PopupCart from "./popupcart";
+import { useNavigate } from "react-router-dom";
 
 function Allperfume(){
+  const navigate = useNavigate();
   useEffect(() => {
     if (window.fbq) {
       window.fbq('track', 'ViewContent', {
@@ -16,7 +18,7 @@ function Allperfume(){
   const [minPrice] = useState(0); 
   const [maxPrice] = useState(500); 
 
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  // const [selectedProduct, setSelectedProduct] = useState(null);
   const [showSort, setShowSort] = useState(false);
 
   useEffect(() => {
@@ -142,7 +144,8 @@ function Allperfume(){
                 </div>
                 <div className="price">AED {s.price}</div>
                 <div className="carticon">
-                  <button onClick={() => {
+                  <button
+                  onClick={() => {
                     if (window.fbq) {
                       window.fbq('track', 'ViewContent', {
                         content_name: s.name,
@@ -150,12 +153,11 @@ function Allperfume(){
                         value: Number(s.price),
                         currency: "AED"
                       });
-                    }
-                    setSelectedProduct(s);
+                    }navigate(`/product/${s.id}`);
                     }}
-                  >
-                    buy now
-                  </button>
+                    >
+                      view product
+                    </button>
                 </div>
 
               </div>
@@ -164,12 +166,12 @@ function Allperfume(){
         </div>
       </div>
 
-      {selectedProduct && (
+      {/* {selectedProduct && (
         <PopupCart
           close={() => setSelectedProduct(null)}
           product={{ ...selectedProduct, category: "perfumes" }}
         />
-      )}
+      )} */}
 
       <div className="whatsapp">
         <button
