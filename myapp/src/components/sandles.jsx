@@ -66,7 +66,7 @@ function Sandles() {
 
               <div className="carticon">
                 <button onClick={() => navigate(`/product/${s.id}`)}>
-                  buy now
+                  view product
                 </button>
               </div>
             </div>
