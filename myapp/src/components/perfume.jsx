@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import PopupCart from "./popupcart";
 import { useNavigate } from "react-router-dom";
 
 function Perfumes() {
   const [product, setproduct] = useState([]);
-  // const [selectedProduct, setSelectedProduct] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("https://api.yaasgents.com/api/product_data/?category=perfumes&trending=true")
+      .get(
+        "https://api.yaasgents.com/api/product_data/?category=perfumes&trending=true"
+      )
       .then((res) => setproduct(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -57,21 +57,33 @@ function Perfumes() {
             <div className="product_name">{s.name}</div>
             <div className="price">AED {s.price}</div>
 
-              <div className="carticon">
-                <button onClick={() => navigate(`/product/${s.id}`)}>
-                  view product
-                </button>
+            {s.description && (
+              <div className="product-description">
+                <h3>Description</h3>
+                <p>{s.description}</p>
               </div>
+            )}
+
+            {s.features?.length > 0 && (
+              <div className="product-features">
+                <h3>Features</h3>
+
+                {s.features.map((item) => (
+                  <div key={item.id} className="feature-item">
+                    ✓ {item.feature}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="carticon">
+              <button onClick={() => navigate(`/product/${s.id}`)}>
+                view product
+              </button>
+            </div>
           </div>
         );
       })}
-
-      {/* {selectedProduct && (
-        <PopupCart
-          close={() => setSelectedProduct(null)}
-          product={{ ...selectedProduct, category: "perfumes" }}
-        />
-      )} */}
     </div>
   );
 }
