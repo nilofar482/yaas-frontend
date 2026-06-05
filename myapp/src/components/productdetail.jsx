@@ -16,13 +16,16 @@ function ProductDetail() {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
 
   useEffect(() => {
-    axios.get(`https://api.yaasgents.com/api/product/${id}/`)
+    axios
+      .get(`https://api.yaasgents.com/api/product/${id}/`)
       .then((res) => {
         setProduct(res.data);
 
         if (res.data.colors?.length > 0) {
           setSelectedColor(res.data.colors[0]);
-          setActiveImage(res.data.colors[0].image1);
+          setActiveImage(
+            res.data.colors[0]?.images?.[0]?.image || ""
+          );
         }
       })
       .catch((err) => console.log(err));
@@ -30,9 +33,7 @@ function ProductDetail() {
 
   if (!product) return <div>Loading...</div>;
 
-  const images = selectedColor
-    ? [selectedColor.image1, selectedColor.image2].filter(Boolean)
-    : [];
+  const images = selectedColor?.images || [];
 
   const isPerfume = product.category_name?.toLowerCase().includes("perfume");
 
@@ -42,12 +43,12 @@ function ProductDetail() {
       {/* LEFT SIDE */}
       <div className="left">
         <div className="thumbs">
-          {images.map((img, i) => (
+          {images.map((img) => (
             <img
-              key={i}
-              src={`https://api.yaasgents.com${img}`}
-              alt={`${product.name} ${i}`}
-              onClick={() => setActiveImage(img)}
+              key={img.id}
+              src={`https://api.yaasgents.com${img.image}`}
+              alt={product.name}
+              onClick={() => setActiveImage(img.image)}
             />
           ))}
         </div>
@@ -65,25 +66,25 @@ function ProductDetail() {
 
         <h1 className="title">{product.name}</h1>
         <p className="price">AED {product.price}</p>
+
         {product.description && (
-  <div className="product-description">
-    <h3>Description</h3>
-    <p>{product.description}</p>
-  </div>
-)}
+          <div className="product-description">
+            <h3>Description</h3>
+            <p>{product.description}</p>
+          </div>
+        )}
 
-{/* FEATURES */}
-{product.features?.length > 0 && (
-  <div className="product-features">
-    <h3>Features</h3>
+        {product.features?.length > 0 && (
+          <div className="product-features">
+            <h3>Features</h3>
 
-    <ul>
-      {product.features.map((item) => (
-        <li key={item.id}>{item.feature}</li>
-      ))}
-    </ul>
-  </div>
-)}
+            <ul>
+              {product.features.map((item) => (
+                <li key={item.id}>{item.feature}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* COLOR */}
         {!isPerfume && (
@@ -94,15 +95,19 @@ function ProductDetail() {
               {product.colors?.map((c) => (
                 <div
                   key={c.id}
-                  className={`color-box ${selectedColor?.id === c.id ? "active" : ""}`}
+                  className={`color-box ${
+                    selectedColor?.id === c.id ? "active" : ""
+                  }`}
                   onClick={() => {
                     setSelectedColor(c);
-                    setActiveImage(c.image1);
                     setSelectedSize(null);
+                    setActiveImage(
+                      c.images?.[0]?.image || ""
+                    );
                   }}
                 >
                   <img
-                    src={`https://api.yaasgents.com${c.image1}`}
+                    src={`https://api.yaasgents.com${c.images?.[0]?.image}`}
                     alt={c.color_name}
                   />
                 </div>
@@ -119,7 +124,9 @@ function ProductDetail() {
               {selectedColor?.sizes.map((s) => (
                 <div
                   key={s.id}
-                  className={`size-box ${selectedSize === s.size ? "active" : ""}`}
+                  className={`size-box ${
+                    selectedSize === s.size ? "active" : ""
+                  }`}
                   onClick={() => setSelectedSize(s.size)}
                 >
                   {s.size}
@@ -130,9 +137,13 @@ function ProductDetail() {
         )}
 
         <div className="qty-section">
-          <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>-</button>
+          <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
+            -
+          </button>
           <span>{qty}</span>
-          <button onClick={() => setQty(qty + 1)}>+</button>
+          <button onClick={() => setQty(qty + 1)}>
+            +
+          </button>
         </div>
 
         <button
@@ -153,15 +164,17 @@ function ProductDetail() {
             navigate("/checkout", {
               state: {
                 product: product,
-                image: selectedColor?.image1 || null,
+                image:
+                  selectedColor?.images?.[0]?.image || null,
                 checkoutData: {
                   quantity: qty,
                   color_id: selectedColor?.id || null,
-                  size_id: selectedColor?.sizes?.find(
-                    s => s.size === selectedSize
-                  )?.id || null
-                }
-              }
+                  size_id:
+                    selectedColor?.sizes?.find(
+                      (s) => s.size === selectedSize
+                    )?.id || null,
+                },
+              },
             });
           }}
         >
@@ -171,20 +184,38 @@ function ProductDetail() {
       </div>
 
       {showErrorPopup && (
-        <div className="login_popup_overlay" onClick={() => setShowErrorPopup(false)}>
-          <div className="login_popup" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="login_popup_overlay"
+          onClick={() => setShowErrorPopup(false)}
+        >
+          <div
+            className="login_popup"
+            onClick={(e) => e.stopPropagation()}
+          >
             <p>Please select a size</p>
-            <button onClick={() => setShowErrorPopup(false)}>OK</button>
+            <button onClick={() => setShowErrorPopup(false)}>
+              OK
+            </button>
           </div>
         </div>
       )}
 
       {showLoginPopup && (
-        <div className="login_popup_overlay" onClick={() => setShowLoginPopup(false)}>
-          <div className="login_popup" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="login_popup_overlay"
+          onClick={() => setShowLoginPopup(false)}
+        >
+          <div
+            className="login_popup"
+            onClick={(e) => e.stopPropagation()}
+          >
             <p>Please login to continue</p>
-            <button onClick={() => navigate("/login")}>Login</button>
-            <button onClick={() => setShowLoginPopup(false)}>Cancel</button>
+            <button onClick={() => navigate("/login")}>
+              Login
+            </button>
+            <button onClick={() => setShowLoginPopup(false)}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
