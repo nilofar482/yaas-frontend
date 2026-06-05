@@ -463,14 +463,14 @@ h1 {
 }
 
 .product-description h3{
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 6px;
   color: #222;
   font-weight: 600;
 }
 
 .product-description p{
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
   color: #666;
   margin: 0;
@@ -499,4 +499,16 @@ h1 {
 
 .feature-item:last-child{
   margin-bottom: 0;
+}
+@media screen and (max-width:475px) {
+  .product-description,.product-description p{
+    text-align: center;
+  }
+  
+}
+@media screen and (max-width:375px) {
+  .product-description p{
+    font-size: 14px;
+  }
+  
 }
