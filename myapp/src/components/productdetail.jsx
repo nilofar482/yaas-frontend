@@ -65,6 +65,25 @@ function ProductDetail() {
 
         <h1 className="title">{product.name}</h1>
         <p className="price">AED {product.price}</p>
+        {product.description && (
+  <div className="product-description">
+    <h3>Description</h3>
+    <p>{product.description}</p>
+  </div>
+)}
+
+{/* FEATURES */}
+{product.features?.length > 0 && (
+  <div className="product-features">
+    <h3>Features</h3>
+
+    <ul>
+      {product.features.map((item) => (
+        <li key={item.id}>{item.feature}</li>
+      ))}
+    </ul>
+  </div>
+)}
 
         {/* COLOR */}
         {!isPerfume && (

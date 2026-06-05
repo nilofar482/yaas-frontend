@@ -57,25 +57,6 @@ function Perfumes() {
             <div className="product_name">{s.name}</div>
             <div className="price">AED {s.price}</div>
 
-            {s.description && (
-              <div className="product-description">
-                <h3>Description</h3>
-                <p>{s.description}</p>
-              </div>
-            )}
-
-            {s.features?.length > 0 && (
-              <div className="product-features">
-                <h3>Features</h3>
-
-                {s.features.map((item) => (
-                  <div key={item.id} className="feature-item">
-                    ✓ {item.feature}
-                  </div>
-                ))}
-              </div>
-            )}
-
             <div className="carticon">
               <button onClick={() => navigate(`/product/${s.id}`)}>
                 view product
