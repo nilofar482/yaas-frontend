@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import PopupCart from "./popupcart";
+// import PopupCart from "./popupcart";
+import { useNavigate } from "react-router-dom";
 
 function Perfumes() {
   const [product, setproduct] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  // const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -55,21 +57,21 @@ function Perfumes() {
             <div className="product_name">{s.name}</div>
             <div className="price">AED {s.price}</div>
 
-            <div className="carticon">
-              <button onClick={() => setSelectedProduct(s)}>
-                Buy Now
-              </button>
-            </div>
+              <div className="carticon">
+                <button onClick={() => navigate(`/product/${s.id}`)}>
+                  buy now
+                </button>
+              </div>
           </div>
         );
       })}
 
-      {selectedProduct && (
+      {/* {selectedProduct && (
         <PopupCart
           close={() => setSelectedProduct(null)}
           product={{ ...selectedProduct, category: "perfumes" }}
         />
-      )}
+      )} */}
     </div>
   );
 }

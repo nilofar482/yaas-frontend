@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import PopupCart from "./popupcart";
-// import { Link } from "react-router-dom";
+// import PopupCart from "./popupcart";
+import { useNavigate } from "react-router-dom";
 
 function Sandles() {
   const [product, setproduct] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  // const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
+  
 
   useEffect(() => {
     axios
@@ -63,7 +65,7 @@ function Sandles() {
               <div className="price">AED {s.price}</div>
 
               <div className="carticon">
-                <button onClick={() => setSelectedProduct(s)}>
+                <button onClick={() => navigate(`/product/${s.id}`)}>
                   buy now
                 </button>
               </div>
@@ -76,12 +78,12 @@ function Sandles() {
         <Link to='allsandle'><button>Shop Sandles</button></Link>
       </div> */}
 
-      {selectedProduct && (
+      {/* {selectedProduct && (
         <PopupCart
           close={() => setSelectedProduct(null)}
           product={selectedProduct}
         />
-      )}
+      )} */}
     </div>
   );
 }
