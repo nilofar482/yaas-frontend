@@ -235,6 +235,7 @@
     text-transform: capitalize;
     transition: all .3s ease;
     width: 100%;
+    margin-top: 11px;
 }
 @media screen and (max-width:475px) {
   .carticon button{
@@ -1990,7 +1991,7 @@ background-color: white;
   margin-bottom: 10px;
   letter-spacing: 1px;
 }
-.allprice {
+.price {
   font-size: 18px;
   color: #c9a86a; /* gold */
   margin-bottom: 25px;

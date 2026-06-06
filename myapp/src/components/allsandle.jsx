@@ -161,25 +161,26 @@ function Allsandle() {
             return (
               <div key={s.id} className="product-card">
 
-                <div className="img-box">
-                  {s.colors && s.colors.length > 0 ? (
-                    <>
-                      <img
-                        src={`https://api.yaasgents.com${s.colors[0].image1}`}
-                        alt={s.name}
-                      />
-                      {s.colors[0].image2 && (
-                        <img
-                          src={`https://api.yaasgents.com${s.colors[0].image2}`}
-                          alt={s.name}
-                          className="hover-img"
-                        />
-                      )}
-                    </>
-                  ) : (
-                    <p>No Image</p>
-                  )}
-                </div>
+<div className="img-box">
+  {s.colors?.[0]?.images?.length > 0 ? (
+    <>
+      <img
+        src={`https://api.yaasgents.com${s.colors[0].images[0].image}`}
+        alt={s.name}
+      />
+
+      {s.colors[0].images[1]?.image && (
+        <img
+          src={`https://api.yaasgents.com${s.colors[0].images[1].image}`}
+          alt={s.name}
+          className="hover-img"
+        />
+      )}
+    </>
+  ) : (
+    <p>No Image</p>
+  )}
+</div>
 
                 {totalStock === 0 && (
                   <div className="sold_out">
