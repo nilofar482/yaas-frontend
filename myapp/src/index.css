@@ -90,6 +90,9 @@ h1 {
     transition: top 0.3s ease;
     box-shadow: 0px 0px 5px #80808080;
 }
+.navbar {
+  background: red !important;
+}
 
 .navbar svg{
   fill: white;
