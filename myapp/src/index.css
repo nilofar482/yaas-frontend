@@ -86,7 +86,7 @@ h1 {
 /* NAVBAR */
 
 .navbar {
-    position: fixed;
+    position: relative !important;
     top: 0;
     left: 0;
     width: 100%;
