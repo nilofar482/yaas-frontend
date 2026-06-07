@@ -10,6 +10,7 @@ function Layout() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isInstagram, setIsInstagram] = useState(false);
 
   const location = useLocation();
   useEffect(() => {
@@ -18,6 +19,11 @@ function Layout() {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(localStorage.getItem("user"));
+
+  useEffect(() => {
+  const ua = navigator.userAgent || "";
+  setIsInstagram(ua.includes("Instagram"));
+  }, []);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -70,11 +76,19 @@ function Layout() {
         <div className="first1"></div>
       </div> */}
 
-      <nav
-        className={`navbar ${scrolled ? "active" : ""} 
-        ${["/allsandle", "/allperfume", "/signup", "/login", "/about","/terms", "/profile", "/kandura"].includes(location.pathname) ||  location.pathname.includes("/product/") ? "text-dark" : ""}
-        ${showSearch ? "search-active" : ""}`}
-      >
+<nav
+  className={`navbar 
+    ${isInstagram ? "instagram-navbar" : ""}
+    ${scrolled ? "active" : ""} 
+    ${
+      ["/allsandle", "/allperfume", "/signup", "/login", "/about", "/terms", "/profile", "/kandura"].includes(location.pathname) ||
+      location.pathname.includes("/product/")
+        ? "text-dark"
+        : ""
+    }
+    ${showSearch ? "search-active" : ""}
+  `}
+>
         <div className="navmain">
           <div className="logo"><img src="/logoyaas.png" alt="logo" /></div>
 
