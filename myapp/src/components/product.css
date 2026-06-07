@@ -271,18 +271,33 @@
 }
 
 .price {
-  font-size: 16px;
-  padding-top: 10px;
-  font-weight: 600;
-  color: #aa7d33;
-  font-family: serif;
-  text-align: center;
+    color: #c9a86a;
+    font-family: serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
 }
 .old-price {
-  text-decoration: line-through;
+  position: relative;
   color: #9a9a9a;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
+  text-decoration: none;
+}
+
+.old-price::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: #c9a86a; /* line color */
+  transform: translateY(-50%);
 }
 
 .offer-price {
