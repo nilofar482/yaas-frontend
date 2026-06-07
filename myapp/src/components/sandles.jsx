@@ -62,7 +62,23 @@ function Sandles() {
                 {s.name} - {s.colors?.[0]?.color_name || ""}
               </div>
 
-              <div className="price">AED {s.price}</div>
+              <div className="price">
+                {s.offer_price ? (
+                  <>
+                  <span className="old-price">
+                    AED {s.price}
+                  </span>
+
+                  <span className="offer-price">
+                    AED {s.offer_price}
+                  </span>
+                  </>
+                ) : (
+                <span className="offer-price">
+                  AED {s.price}
+                </span>
+              )}
+              </div>
 
               <div className="carticon">
                 <button onClick={() => navigate(`/product/${s.id}`)}>
