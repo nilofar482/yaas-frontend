@@ -12,6 +12,9 @@ function Layout() {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const location = useLocation();
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, [location.pathname]);
   const navigate = useNavigate();
 
   const [user, setUser] = useState(localStorage.getItem("user"));

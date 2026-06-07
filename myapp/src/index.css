@@ -77,19 +77,23 @@ h1 {
 }
 
 /* NAVBAR */
-/* NAVBAR */
 .navbar {
-    position: fixed;
-    top: env(safe-area-inset-top, 0);
+    position: sticky;
+    top: 0 !important;
     left: 0;
     width: 100%;
-    height: auto; /* FIXED */
-    padding-bottom: 10px; /* FIXED */
+    z-index: 99999;
+
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    height: auto;
+    padding-bottom: 10px;
     background: transparent;
-    z-index: 1000;
     transition: top 0.3s ease;
     box-shadow: 0px 0px 5px #80808080;
 }
+
 
 .navbar svg{
   fill: white;
@@ -232,6 +236,11 @@ h1 {
   height: 100vh;
   overflow: hidden;
   position: relative;
+}
+.hero,
+.hero-container {
+  height: 100vh;
+  height: 100svh;
 }
 
 @media (max-width: 768px) {
