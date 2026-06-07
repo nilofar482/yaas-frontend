@@ -99,8 +99,9 @@ h1 {
     box-shadow: 0px 0px 5px #80808080;
 }
 .instagram-navbar {
-  position: relative !important;
-  top: auto !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 99999;
 }
 .navbar svg{
   fill: white;
