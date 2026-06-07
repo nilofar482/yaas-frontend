@@ -65,7 +65,23 @@ function ProductDetail() {
       <div className="right">
 
         <h1 className="title">{product.name}</h1>
-        <p className="price">AED {product.price}</p>
+        <div className="price">
+  {product.offer_price ? (
+    <>
+      <span className="old-price">
+        AED {product.price}
+      </span>
+
+      <span className="offer-price">
+        AED {product.offer_price}
+      </span>
+    </>
+  ) : (
+    <span className="offer-price">
+      AED {product.price}
+    </span>
+  )}
+</div>
 
         {product.description && (
           <div className="product-description">
