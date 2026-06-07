@@ -20,7 +20,8 @@ function Checkout() {
         : `https://api.yaasgents.com${product?.colors?.[0]?.image1}`;
 
     const qty = checkoutData?.quantity || 1;
-    const total = product?.price * qty;
+    const finalPrice = product?.offer_price || product?.price;
+    const total = finalPrice * qty;
 
     const selectedColorObj = product?.colors?.find(
         c => String(c.id) === String(checkoutData?.color_id)
@@ -95,7 +96,7 @@ function Checkout() {
                 product: {
                     id: product?.id,
                     name: product?.name,
-                    price: product?.price,
+                    price: finalPrice,
                     quantity: qty,
                     size: isPerfume ? null : selectedSize?.size,
                     size_id: isPerfume ? null : selectedSize?.id,
@@ -124,7 +125,7 @@ function Checkout() {
     product: {
       id: product?.id,
       name: product?.name,
-      price: product?.price,
+      price: finalPrice,
       quantity: qty,
 
       ...(isPerfume
@@ -139,7 +140,7 @@ function Checkout() {
     },
 
     quantity: qty,
-    price: product?.price,
+    price: finalPrice,
     total_amount: total,
 
     area: form.area,
@@ -207,9 +208,16 @@ function Checkout() {
                                     <p className="variant">Perfume</p>
                                 )}
                             </div>
-
+                            
                             <div className="price">
-                                AED {product?.price}
+                                {product?.offer_price ? (
+                                    <>
+                                    <span className="old-price">AED {product?.price}</span>
+                                    <span className="offer-price">AED {product?.offer_price}</span>
+                                    </>
+                                    ) : (
+                                <>AED {product?.price}</>
+                                )}
                             </div>
                         </div>
 
