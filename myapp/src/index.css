@@ -4,6 +4,13 @@ body {
   padding: 0;
   background: #f7f2ea91;
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
 h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 44px;
@@ -77,21 +84,19 @@ h1 {
 }
 
 /* NAVBAR */
-/* NAVBAR */
+
 .navbar {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: auto; /* FIXED */
-    padding-bottom: 10px; /* FIXED */
     background: transparent;
-    z-index: 1000;
-    transition: top 0.3s ease;
+    z-index: 99999;
+    padding-top: env(safe-area-inset-top);
+    padding: 0;
+    height: auto;
+
     box-shadow: 0px 0px 5px #80808080;
-}
-.navbar {
-  background: black !important;
 }
 
 .navbar svg{
@@ -236,7 +241,13 @@ h1 {
   overflow: hidden;
   position: relative;
 }
+.hero {
+  min-height: 100dvh;
+}
 
+.hero-container {
+  min-height: 100dvh;
+}
 @media (max-width: 768px) {
   .hero-container {
     height: 62vh;
@@ -323,7 +334,7 @@ h1 {
 
   /* NAV MAIN STACK */
   .navmain {
-    flex-direction: column;
+    flex-direction: row !important;
     align-items: center;
     position: relative;
     padding: 12px 0;
