@@ -301,7 +301,7 @@
   transform: translateY(-50%);
 }
 @media screen and (max-width:475px) {
-  .old-price{
+  .old-price,.offer-price{
     font-size: 15px;
   }
   .price{
