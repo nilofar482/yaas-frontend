@@ -300,7 +300,14 @@
   background: #c49234;
   transform: translateY(-50%);
 }
-
+@media screen and (max-width:475px) {
+  .old-price{
+    font-size: 15px;
+  }
+  .price{
+    font-size: 16px;
+  }
+}
 .offer-price {
   color: #aa7d33; 
   font-size: 18px;
