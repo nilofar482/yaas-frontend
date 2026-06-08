@@ -3401,6 +3401,7 @@ width: 40px;
   display: flex;
   align-items: center;
   gap: 18px;
+  font-family: Cormorant Garamond, serif;
 }
 
 .feature-item i,
