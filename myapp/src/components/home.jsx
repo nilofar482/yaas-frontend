@@ -102,8 +102,15 @@ function Home() {
       </div>
 
       <div className="features-container">
+
   <div className="feature-item">
-    <i className="fas fa-truck"></i>
+    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M1 3h15v13H1z" />
+      <path d="M16 8h4l3 4v4h-7z" />
+      <circle cx="5.5" cy="18.5" r="2" />
+      <circle cx="18.5" cy="18.5" r="2" />
+    </svg>
+
     <div>
       <h3>Free Shipping</h3>
       <p>For order above AED200</p>
@@ -111,7 +118,12 @@ function Home() {
   </div>
 
   <div className="feature-item">
-    <i className="fas fa-shopping-cart"></i>
+    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="9" cy="20" r="1.5" />
+      <circle cx="18" cy="20" r="1.5" />
+      <path d="M3 4h2l2.5 11h11l2-8H7" />
+    </svg>
+
     <div>
       <h3>Cash on Delivery</h3>
       <p>For selected products only</p>
@@ -119,7 +131,12 @@ function Home() {
   </div>
 
   <div className="feature-item">
-    <i className="fas fa-money-bill-wave"></i>
+    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="2" y="5" width="20" height="14" rx="2" />
+      <circle cx="12" cy="12" r="3" />
+      <path d="M6 12h.01M18 12h.01" />
+    </svg>
+
     <div>
       <h3>Money Back Guarantee</h3>
       <p>Refund within 7 days</p>
@@ -127,12 +144,16 @@ function Home() {
   </div>
 
   <div className="feature-item">
-    <i className="fas fa-phone-alt"></i>
+    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.06 3h3a2 2 0 0 1 2 1.72l.34 2.27a2 2 0 0 1-.57 1.73l-1.2 1.2a16 16 0 0 0 6.37 6.37l1.2-1.2a2 2 0 0 1 1.73-.57l2.27.34A2 2 0 0 1 22 16.92z" />
+    </svg>
+
     <div>
       <h3>24/7 Support</h3>
       <p>Answer all your questions</p>
     </div>
   </div>
+
 </div>
 
       <Product />

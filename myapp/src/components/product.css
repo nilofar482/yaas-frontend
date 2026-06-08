@@ -3500,3 +3500,8 @@ width: 40px;
     font-size: 11px;
   }
 }
+.feature-item svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
