@@ -252,13 +252,7 @@ h1 {
   overflow: hidden;
   position: relative;
 }
-.hero {
-  min-height: 100dvh;
-}
 
-.hero-container {
-  min-height: 100dvh;
-}
 @media (max-width: 768px) {
   .hero-container {
     height: 62vh;
