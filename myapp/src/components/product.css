@@ -3410,6 +3410,12 @@ width: 40px;
   flex-shrink: 0;
 }
 
+.feature-item svg {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
 .feature-item h3 {
   margin: 0;
   font-size: 23px;
@@ -3445,6 +3451,11 @@ width: 40px;
     min-width: 24px;
   }
 
+  .feature-item svg {
+    width: 24px;
+    height: 24px;
+  }
+
   .feature-item h3 {
     font-size: 18px;
     line-height: 1.4;
@@ -3476,6 +3487,12 @@ width: 40px;
     margin-top: 10px;
   }
 
+  .feature-item svg {
+    width: 22px;
+    height: 22px;
+    margin-top: 10px;
+  }
+
   .feature-item h3 {
     font-size: 16px;
   }
@@ -3493,6 +3510,11 @@ width: 40px;
     padding: 15px 8px;
   }
 
+  .feature-item svg {
+    width: 20px;
+    height: 20px;
+  }
+
   .feature-item h3 {
     font-size: 14px;
   }
@@ -3500,9 +3522,4 @@ width: 40px;
   .feature-item p {
     font-size: 11px;
   }
-}
-.feature-item svg {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
 }
