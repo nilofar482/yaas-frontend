@@ -101,6 +101,40 @@ function Home() {
         </div>
       </div>
 
+      <div className="features-container">
+  <div className="feature-item">
+    <i className="fas fa-truck"></i>
+    <div>
+      <h3>Free Shipping</h3>
+      <p>For order above AED200</p>
+    </div>
+  </div>
+
+  <div className="feature-item">
+    <i className="fas fa-shopping-cart"></i>
+    <div>
+      <h3>Cash on Delivery</h3>
+      <p>For selected products only</p>
+    </div>
+  </div>
+
+  <div className="feature-item">
+    <i className="fas fa-money-bill-wave"></i>
+    <div>
+      <h3>Money Back Guarantee</h3>
+      <p>Refund within 7 days</p>
+    </div>
+  </div>
+
+  <div className="feature-item">
+    <i className="fas fa-phone-alt"></i>
+    <div>
+      <h3>24/7 Support</h3>
+      <p>Answer all your questions</p>
+    </div>
+  </div>
+</div>
+
       <Product />
 
       <div>
