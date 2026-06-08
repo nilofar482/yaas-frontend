@@ -3472,7 +3472,7 @@ width: 40px;
   .feature-item i,
   .feature-item svg {
     font-size: 22px;
-    height: 25px;
+    min-width: 22px;
     margin-top: 10px;
   }
 
