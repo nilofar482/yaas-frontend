@@ -253,11 +253,11 @@ h1 {
   position: relative;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .hero-container {
     height: 62vh;
   }
-} */
+}
 /* BUTTON */
 .homebutton {
   margin-top: 20px;
