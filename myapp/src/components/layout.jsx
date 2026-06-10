@@ -90,7 +90,7 @@ function Layout() {
   `}
 >
         <div className="navmain">
-          <div className="logo"><img src="/logoyaas.png" alt="logo" /></div>
+          <div className="logo"><img src="/newlogo.PNG" alt="logo" /></div>
 
           <div>
             <button onClick={() => setShowPopup(true)} className="list">
@@ -100,7 +100,7 @@ function Layout() {
             </button>
           </div>
 
-          <div className="logo2"><img src="/logoyaas.png" alt="logo" /></div>
+          <div className="logo2"><img src="/newlogo.PNG" alt="logo" /></div>
 
           <div className="navcenter">
             <ul>

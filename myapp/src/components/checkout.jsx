@@ -176,7 +176,7 @@ function Checkout() {
 
             <div className="checkout_top">
                 <div className="check">
-                    <img src="/logoyaas.png" alt="logo" />
+                    <img src="/newlogo.PNG" alt="logo" />
                 </div>
                 <div className="name">Yaas_gents</div>
             </div>

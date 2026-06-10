@@ -3,17 +3,17 @@
   "name": "Yaas Gents Tailoring & Fashion Store",
   "icons": [
     {
-      "src": "logoyaas.png",
+      "src": "newlogo.PNG",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logoyaas.png",
+      "src": "newlogo.PNG",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logoyaas.png",
+      "src": "newlogo.PNG",
       "type": "image/png",
       "sizes": "512x512"
     }
