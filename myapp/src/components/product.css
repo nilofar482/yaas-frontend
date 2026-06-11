@@ -2040,6 +2040,7 @@ background-color: white;
   color: #777;
   margin-bottom: 8px;
   letter-spacing: 1px;
+  font-weight: 700;
 }
 .color-options {
   display: flex;
