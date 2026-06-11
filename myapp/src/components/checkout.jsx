@@ -13,11 +13,11 @@ function Checkout() {
     const [errorMessage, setErrorMessage] = useState("");
 
     const isPerfume =
-        product?.category_name?.toLowerCase() === "perfume";
+    product?.category_name?.toLowerCase().includes("perfume");
 
     const imageUrl = image
-        ? `https://api.yaasgents.com${image}`
-        : `https://api.yaasgents.com${product?.colors?.[0]?.image1}`;
+    ? `https://api.yaasgents.com${image}`
+    : `https://api.yaasgents.com${product?.colors?.[0]?.images?.[0]?.image}`;
 
     const qty = checkoutData?.quantity || 1;
     const finalPrice = product?.offer_price || product?.price;
