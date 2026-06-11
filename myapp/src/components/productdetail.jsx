@@ -27,10 +27,10 @@ function ProductDetail() {
       res.data.colors[0]?.images?.[0]?.image || ""
     );
   }
-  if (res.data.category_name?.toLowerCase().includes("perfume")) {
-    const firstSize = res.data.colors?.[0]?.sizes?.[0]?.size;
-    setSelectedSize(firstSize);
-  }
+if (res.data.category_name?.toLowerCase().includes("perfume")) {
+  const firstSize = res.data.colors?.[0]?.sizes?.[0]?.size;
+  setSelectedSize(firstSize);
+}
 })
       .catch((err) => console.log(err));
   }, [id]);
