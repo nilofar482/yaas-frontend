@@ -15,25 +15,26 @@ function ProductDetail() {
   const [showErrorPopup, setShowErrorPopup] = useState(false);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(`https://api.yaasgents.com/api/product/${id}/`)
-.then((res) => {
-  setProduct(res.data);
+useEffect(() => {
+  axios
+    .get(`https://api.yaasgents.com/api/product/${id}/`)
+    .then((res) => {
+      setProduct(res.data);
 
-  if (res.data.colors?.length > 0) {
-    setSelectedColor(res.data.colors[0]);
-    setActiveImage(
-      res.data.colors[0]?.images?.[0]?.image || ""
-    );
-  }
-if (res.data.category_name?.toLowerCase().includes("perfume")) {
-  const firstSize = res.data.colors?.[0]?.sizes?.[0]?.size;
-  setSelectedSize(firstSize);
-}
-})
-      .catch((err) => console.log(err));
-  }, [id]);
+      if (res.data.colors?.length > 0) {
+        const firstColor = res.data.colors[0];
+
+        setSelectedColor(firstColor);
+        setActiveImage(firstColor?.images?.[0]?.image || "");
+
+        // ✅ SAFE: set default size AFTER color is ready
+        if (res.data.category_name?.toLowerCase().includes("perfume")) {
+          setSelectedSize(firstColor?.sizes?.[0]?.size || null);
+        }
+      }
+    })
+    .catch((err) => console.log(err));
+}, [id]);
 
   if (!product) return <div>Loading...</div>;
 
@@ -141,7 +142,7 @@ if (res.data.category_name?.toLowerCase().includes("perfume")) {
 
   <div className="sizes">
     {(isPerfume
-      ? product?.colors?.[0]?.sizes
+      ? selectedColor?.sizes
       : selectedColor?.sizes
     )?.map((s) => (
       <div
@@ -170,7 +171,7 @@ if (res.data.category_name?.toLowerCase().includes("perfume")) {
         <button
           className="buy-btn"
           onClick={() => {
-            if (!selectedSize) {
+            if (!selectedSize && selectedSize !== 0) {
               setShowErrorPopup(true);
               return;
             }
