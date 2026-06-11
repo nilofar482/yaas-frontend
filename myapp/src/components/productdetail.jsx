@@ -18,16 +18,20 @@ function ProductDetail() {
   useEffect(() => {
     axios
       .get(`https://api.yaasgents.com/api/product/${id}/`)
-      .then((res) => {
-        setProduct(res.data);
+.then((res) => {
+  setProduct(res.data);
 
-        if (res.data.colors?.length > 0) {
-          setSelectedColor(res.data.colors[0]);
-          setActiveImage(
-            res.data.colors[0]?.images?.[0]?.image || ""
-          );
-        }
-      })
+  if (res.data.colors?.length > 0) {
+    setSelectedColor(res.data.colors[0]);
+    setActiveImage(
+      res.data.colors[0]?.images?.[0]?.image || ""
+    );
+  }
+  if (res.data.category_name?.toLowerCase().includes("perfume")) {
+    const firstSize = res.data.colors?.[0]?.sizes?.[0]?.size;
+    setSelectedSize(firstSize);
+  }
+})
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -132,25 +136,26 @@ function ProductDetail() {
           </div>
         )}
 
-        {!isPerfume && (
-          <div className="size-section">
-            <p>Size:</p>
+<div className="size-section">
+  <p>Size:</p>
 
-            <div className="sizes">
-              {selectedColor?.sizes.map((s) => (
-                <div
-                  key={s.id}
-                  className={`size-box ${
-                    selectedSize === s.size ? "active" : ""
-                  }`}
-                  onClick={() => setSelectedSize(s.size)}
-                >
-                  {s.size}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+  <div className="sizes">
+    {(isPerfume
+      ? product?.colors?.[0]?.sizes
+      : selectedColor?.sizes
+    )?.map((s) => (
+      <div
+        key={s.id}
+        className={`size-box ${
+          selectedSize === s.size ? "active" : ""
+        }`}
+        onClick={() => setSelectedSize(s.size)}
+      >
+        {s.size} ml
+      </div>
+    ))}
+  </div>
+</div>
 
         <div className="qty-section">
           <button onClick={() => setQty(qty > 1 ? qty - 1 : 1)}>
@@ -165,7 +170,7 @@ function ProductDetail() {
         <button
           className="buy-btn"
           onClick={() => {
-            if (!isPerfume && !selectedSize) {
+            if (!selectedSize) {
               setShowErrorPopup(true);
               return;
             }
