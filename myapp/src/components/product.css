@@ -2078,13 +2078,10 @@ background-color: white;
 
 .size-box {
   padding: 10px 18px;
+  border: 1px solid #ddd;
   cursor: pointer;
   transition: 0.3s;
   font-size: 14px;
-  background: #3f3522;
-  border: none;
-  color: #fff;
-  font-family: math;
 }
 
 .size-box:hover {
@@ -2092,9 +2089,11 @@ background-color: white;
 }
 
 .size-box.active {
-  background: #c9a86a;
   color: white;
   border: none;
+  background: #3f3522;
+  border: none;
+  font-family: math;
 }
 .qty-section {
   display: flex;
