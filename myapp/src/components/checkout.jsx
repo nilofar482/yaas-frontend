@@ -27,9 +27,13 @@ function Checkout() {
         c => String(c.id) === String(checkoutData?.color_id)
     );
 
-    const selectedSize = selectedColorObj?.sizes?.find(
-        s => String(s.id) === String(checkoutData?.size_id)
-    );
+const selectedSize =
+  selectedColorObj?.sizes?.find(
+    s => String(s.id) === String(checkoutData?.size_id)
+  ) ||
+  selectedColorObj?.sizes?.find(
+    s => String(s.size) === String(checkoutData?.size)
+  );
 
     const selectedColor = selectedColorObj;
 
@@ -197,12 +201,11 @@ function Checkout() {
                             <div className="details">
                                 <h4>{product?.name}</h4>
 
-                                {!isPerfume && selectedSize && selectedColor && (
-                                    <p className="variant">
-                                        Size: {selectedSize?.size} |
-                                        Color: {selectedColor?.color_name}
-                                    </p>
-                                )}
+                                <p className="variant">
+                                    {isPerfume
+                                    ? `Size: ${selectedSize?.size || ""} ml`
+                                    : `Size: ${selectedSize?.size} | Color: ${selectedColor?.color_name}`}
+                                </p>
 
                                 {isPerfume && (
                                     <p className="variant">Perfume</p>

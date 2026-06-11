@@ -29,7 +29,7 @@ useEffect(() => {
 
         // ✅ SAFE: set default size AFTER color is ready
         if (res.data.category_name?.toLowerCase().includes("perfume")) {
-          setSelectedSize(firstColor?.sizes?.[0]?.size || null);
+          setSelectedSize(firstColor?.sizes?.[0] || null);
         }
       }
     })
