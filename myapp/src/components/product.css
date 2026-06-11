@@ -2083,6 +2083,7 @@ background-color: white;
   cursor: pointer;
   transition: 0.3s;
   font-size: 14px;
+  font-family: math;
 }
 
 .size-box:hover {
