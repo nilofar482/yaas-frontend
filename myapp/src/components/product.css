@@ -3527,3 +3527,9 @@ width: 40px;
     font-size: 11px;
   }
 }
+.perfume-size {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

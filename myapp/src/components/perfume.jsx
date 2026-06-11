@@ -46,6 +46,9 @@ function Perfumes() {
             )}
 
             <div className="product_name">{s.name}</div>
+            <div className="perfume-size">
+              {s.colors?.flatMap(color => color.sizes || []).map(size => `${size.size}ml`).join(" | ")}
+            </div>
             <div className="price">
               {s.offer_price ? (
                 <>
