@@ -16,8 +16,7 @@ function ProductDetail() {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
 
 useEffect(() => {
-  axios
-    .get(`https://api.yaasgents.com/api/product/${id}/`)
+  axios.get(`https://api.yaasgents.com/api/product/${id}/`)
     .then((res) => {
       setProduct(res.data);
 
@@ -27,13 +26,11 @@ useEffect(() => {
         setSelectedColor(firstColor);
         setActiveImage(firstColor?.images?.[0]?.image || "");
 
-        // ✅ SAFE: set default size AFTER color is ready
-        if (res.data.category_name?.toLowerCase().includes("perfume")) {
-          setSelectedSize(firstColor?.sizes?.[0] || null);
+        if (firstColor?.sizes?.length > 0) {
+          setSelectedSize(firstColor.sizes[0]);
         }
       }
-    })
-    .catch((err) => console.log(err));
+    });
 }, [id]);
 
   if (!product) return <div>Loading...</div>;
@@ -140,22 +137,19 @@ useEffect(() => {
 <div className="size-section">
   <p>Size:</p>
 
-  <div className="sizes">
-    {(isPerfume
-      ? selectedColor?.sizes
-      : selectedColor?.sizes
-    )?.map((s) => (
-      <div
-        key={s.id}
-        className={`size-box ${
-          selectedSize === s.size ? "active" : ""
-        }`}
-        onClick={() => setSelectedSize(s.size)}
-      >
-        {s.size} ml
-      </div>
-    ))}
-  </div>
+<div className="sizes">
+  {selectedColor?.sizes?.map((s) => (
+    <div
+      key={s.id}
+      className={`size-box ${
+        selectedSize?.id === s.id ? "active" : ""
+      }`}
+      onClick={() => setSelectedSize(s)}
+    >
+      {s.size} ml
+    </div>
+  ))}
+</div>
 </div>
 
         <div className="qty-section">
@@ -171,10 +165,10 @@ useEffect(() => {
         <button
           className="buy-btn"
           onClick={() => {
-            if (!selectedSize && selectedSize !== 0) {
-              setShowErrorPopup(true);
-              return;
-            }
+if (!isPerfume && !selectedSize) {
+  setShowErrorPopup(true);
+  return;
+}
 
             let token = localStorage.getItem("access_token");
 
@@ -191,10 +185,7 @@ useEffect(() => {
                 checkoutData: {
                   quantity: qty,
                   color_id: selectedColor?.id || null,
-                  size_id:
-                    selectedColor?.sizes?.find(
-                      (s) => s.size === selectedSize
-                    )?.id || null,
+                  size_id: selectedSize?.id || null,
                 },
               },
             });
