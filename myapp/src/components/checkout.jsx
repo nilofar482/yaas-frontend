@@ -27,13 +27,9 @@ function Checkout() {
         c => String(c.id) === String(checkoutData?.color_id)
     );
 
-const selectedSize =
-  selectedColorObj?.sizes?.find(
-    s => String(s.id) === String(checkoutData?.size_id)
-  ) ||
-  selectedColorObj?.sizes?.find(
-    s => String(s.size) === String(checkoutData?.size)
-  );
+const selectedSize = selectedColorObj?.sizes?.find(
+  s => String(s.id) === String(checkoutData?.size_id)
+);
 
     const selectedColor = selectedColorObj;
 

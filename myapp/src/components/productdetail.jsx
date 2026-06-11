@@ -116,13 +116,14 @@ useEffect(() => {
                   className={`color-box ${
                     selectedColor?.id === c.id ? "active" : ""
                   }`}
-                  onClick={() => {
-                    setSelectedColor(c);
-                    setSelectedSize(null);
-                    setActiveImage(
-                      c.images?.[0]?.image || ""
-                    );
-                  }}
+onClick={() => {
+  setSelectedColor(c);
+
+  const firstSize = c?.sizes?.[0] || null;
+  setSelectedSize(firstSize);
+
+  setActiveImage(c.images?.[0]?.image || "");
+}}
                 >
                   <img
                     src={`https://api.yaasgents.com${c.images?.[0]?.image}`}
@@ -165,7 +166,7 @@ useEffect(() => {
         <button
           className="buy-btn"
           onClick={() => {
-if (!isPerfume && !selectedSize) {
+if (!selectedSize) {
   setShowErrorPopup(true);
   return;
 }
